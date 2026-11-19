@@ -1,0 +1,4 @@
+congress,chamber,rollnumber,date,session,clerk_rollnumber,yea_count,nay_count,nominate_mid_1,nominate_mid_2,nominate_spread_1,nominate_spread_2,nominate_log_likelihood,bill_number,vote_result,vote_desc,vote_question,dtl_desc
+119,Senate,1,2025-01-15,1,1,2,3,0.1,0.2,0.3,0.4,-1.0,S5,Bill Failed,A bill to require example reporting,On Passage of the Bill,
+119,Senate,2,2025-01-21,1,2,3,1,0.1,0.2,0.3,0.4,-1.0,PN12,Nomination Confirmed,"Example Nominee, of Ohio, to be an Assistant Secretary",On the Nomination,
+119,Senate,3,2026-11-17,2,3,2,1,0.1,0.2,0.3,0.4,-1.0,HR1228,Passed,Prioritizing Veterans Survivors Act,On Passage of the Bill,

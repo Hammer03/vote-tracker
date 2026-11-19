@@ -1,0 +1,5 @@
+congress,chamber,icpsr,state_icpsr,district_code,state_abbrev,party_code,occupancy,last_means,bioname,bioguide_id,born,died,nominate_dim1,nominate_dim2
+119,Senate,41301,24,0,OH,200,,,"HUSTED, Jon",H001104,1967,,0.5,0.1
+119,Senate,41302,24,0,OH,200,,,"MORENO, Bernie",M001242,1967,,0.6,0.1
+119,Senate,29147,6,0,VT,328,,,"SANDERS, Bernard",S000033,1941,,-0.5,-0.1
+119,Senate,20750,6,0,VT,100,,,"WELCH, Peter",W000800,1947,,-0.4,0.0

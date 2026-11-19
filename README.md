@@ -20,7 +20,7 @@ Every item links back to its official source so anyone can check it.
 | Data | Official source |
 |---|---|
 | House roll call votes | Office of the Clerk, U.S. House (XML) |
-| Senate roll call votes | U.S. Senate Legislative Information System (XML) |
+| Senate roll call votes | U.S. Senate Legislative Information System (XML). senate.gov's firewall blocks cloud servers, so when it refuses, the backend uses Voteview (UCLA), which republishes the official Senate record. Same vote numbers, linked to the official Senate page, replaced by the senate.gov record whenever that site answers. |
 | Bill titles, sponsors, CRS summaries, full-text links | Congress.gov API (Library of Congress) |
 | Members, contact info, district offices, social accounts, committees | congress-legislators (public domain) |
 | Missed-vote % and votes-with-party % | Computed from the roll call records above |

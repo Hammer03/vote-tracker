@@ -21,6 +21,10 @@ log = logging.getLogger(__name__)
 SOURCE_NAME = "U.S. Senate, Legislative Information System"
 
 
+class SenateUnavailable(Exception):
+    """senate.gov refused or failed (its firewall blocks many cloud servers)."""
+
+
 def menu_url(congress: int, session: int) -> str:
     return f"https://www.senate.gov/legislative/LIS/roll_call_lists/vote_menu_{congress}_{session}.xml"
 
@@ -165,9 +169,11 @@ def parse(xml_bytes: bytes, lis_to_bioguide: dict[str, str]) -> dict:
 def fetch_new(http, congress: int, session: int, known: set[int], lis_to_bioguide: dict[str, str],
               refetch: set[int] | None = None, max_new: int | None = None) -> list[dict]:
     resp = http.get(menu_url(congress, session))
-    if not resp.ok:
-        log.info("Senate %s-%s: no vote list yet (HTTP %s)", congress, session, resp.status)
+    if resp.status == 404:
+        log.info("Senate %s-%s: no vote list yet", congress, session)
         return []
+    if not resp.ok:
+        raise SenateUnavailable(f"vote list HTTP {resp.status}")
     try:
         numbers = parse_menu(resp.content)
     except Exception as exc:

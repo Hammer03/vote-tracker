@@ -18,7 +18,7 @@ from votetracker import notify
 from votetracker.publish import Publisher
 from votetracker.money import MoneyRunner
 from votetracker.states import StatesRunner
-from votetracker.sources import congress_gov, house_votes, legislators, senate_votes
+from votetracker.sources import congress_gov, house_votes, legislators, senate_votes, voteview
 from votetracker.util import congress_for_year, iso, make_bill_ref, utc_now, years_for_congress
 
 TITLE_ABBR = {"Senator": "Sen.", "Representative": "Rep.", "Delegate": "Del.", "Resident Commissioner": "Res. Comm."}
@@ -88,19 +88,39 @@ class Pipeline:
     def _fetch_senate(self, congress: int, bundle: dict[str, dict], legs, max_new, full) -> list[str]:
         new_ids = []
         first_year, _ = years_for_congress(congress)
+        blocked = None
         for session in (1, 2):
             if first_year + session - 1 > self.today.year:
                 continue
-            known = {v["number"] for v in bundle.values() if v["session"] == session}
+            # Votes we only have from Voteview are re-read from senate.gov when it answers.
+            known = {v["number"] for v in bundle.values()
+                     if v["session"] == session and (v.get("source") or {}).get("via") != "voteview"}
             refetch = set(sorted(known)[-2:]) if known else set()
             if full:
                 known = set()
-            for v in senate_votes.fetch_new(self.http, congress, session, known, legs.lis_to_bioguide,
-                                            refetch=refetch, max_new=max_new):
+            try:
+                fetched = senate_votes.fetch_new(self.http, congress, session, known, legs.lis_to_bioguide,
+                                                 refetch=refetch, max_new=max_new)
+            except senate_votes.SenateUnavailable as exc:
+                blocked = str(exc)
+                break
+            for v in fetched:
                 self._map_former_senators([v], legs)
                 if v["id"] not in bundle:
                     self.added.append(v)
                 if bundle.get(v["id"]) != v:
+                    new_ids.append(v["id"])
+                bundle[v["id"]] = v
+
+        if blocked:
+            log.warning("senate.gov unavailable (%s): using Voteview for Senate votes", blocked)
+            for v in voteview.fetch_senate(self.http, congress) or []:
+                existing = bundle.get(v["id"])
+                if existing and (existing.get("source") or {}).get("via") != "voteview":
+                    continue  # keep the senate.gov record
+                if existing is None:
+                    self.added.append(v)
+                if existing != v:
                     new_ids.append(v["id"])
                 bundle[v["id"]] = v
         return new_ids

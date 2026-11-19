@@ -1,0 +1,14 @@
+congress,chamber,rollnumber,icpsr,cast_code,prob
+119,Senate,1,41301,1,99
+119,Senate,1,41302,1,99
+119,Senate,1,29147,6,99
+119,Senate,1,20750,6,99
+119,Senate,2,41301,9,99
+119,Senate,2,41302,1,99
+119,Senate,2,29147,6,99
+119,Senate,2,20750,1,99
+119,Senate,3,41301,1,99
+119,Senate,3,41302,3,99
+119,Senate,3,29147,6,99
+119,Senate,3,20750,1,99
+119,Senate,3,99999,0,

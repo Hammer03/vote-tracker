@@ -121,6 +121,11 @@ vote with `bioguide`, `name`, `party`, `state`, `vote`, `raw`),
 
 `required` is the majority needed: `1/2`, `3/5`, `2/3`, or `null` (quorum calls).
 
+Senate votes taken from Voteview (when senate.gov blocks the backend) have
+`source.via = "voteview"`, a date but no time, and `required: null`.
+Paired and announced positions are recorded as `not_voting`, matching the
+Senate's own record, with the announcement kept in `raw`.
+
 ## Bills
 
 ### `bills/{congress}/{type}{number}.json`
