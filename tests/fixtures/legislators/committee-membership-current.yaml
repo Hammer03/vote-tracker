@@ -1,0 +1,413 @@
+SSAF:
+- name: Peter Welch
+  party: minority
+  rank: 8
+  bioguide: W000800
+SSAF14:
+- name: Peter Welch
+  party: minority
+  rank: 4
+  bioguide: W000800
+SSAF17:
+- name: Peter Welch
+  party: minority
+  rank: 2
+  bioguide: W000800
+SSAF15:
+- name: Peter Welch
+  party: minority
+  rank: 1
+  title: Ranking Member
+  bioguide: W000800
+SSAP:
+- name: Jon Husted
+  party: majority
+  rank: 14
+  bioguide: H001104
+SSAP01:
+- name: Jon Husted
+  party: majority
+  rank: 8
+  bioguide: H001104
+SSAP23:
+- name: Jon Husted
+  party: majority
+  rank: 4
+  bioguide: H001104
+SSAP17:
+- name: Jon Husted
+  party: majority
+  rank: 7
+  bioguide: H001104
+SSAP18:
+- name: Jon Husted
+  party: majority
+  rank: 8
+  bioguide: H001104
+SSAP08:
+- name: Jon Husted
+  party: majority
+  rank: 3
+  bioguide: H001104
+SSAP20:
+- name: Jon Husted
+  party: majority
+  rank: 7
+  bioguide: H001104
+SSBK:
+- name: Bernie Moreno
+  party: majority
+  rank: 12
+  bioguide: M001242
+SSBK09:
+- name: Bernie Moreno
+  party: majority
+  rank: 5
+  bioguide: M001242
+SSBK04:
+- name: Bernie Moreno
+  party: majority
+  rank: 8
+  bioguide: M001242
+SSCM:
+- name: Bernie Moreno
+  party: majority
+  rank: 12
+  bioguide: M001242
+SSCM34:
+- name: Bernie Moreno
+  party: majority
+  rank: 11
+  bioguide: M001242
+SSCM36:
+- name: Bernie Moreno
+  party: majority
+  rank: 4
+  bioguide: M001242
+SSCM37:
+- name: Bernie Moreno
+  party: majority
+  rank: 5
+  bioguide: M001242
+SSCM38:
+- name: Bernie Moreno
+  party: majority
+  rank: 7
+  bioguide: M001242
+SSEV:
+- name: Jon Husted
+  party: majority
+  rank: 9
+  bioguide: H001104
+- name: Bernard Sanders
+  party: minority
+  rank: 2
+  bioguide: S000033
+SSEV09:
+- name: Jon Husted
+  party: majority
+  rank: 4
+  bioguide: H001104
+- name: Bernard Sanders
+  party: minority
+  rank: 2
+  bioguide: S000033
+SSEV10:
+- name: Jon Husted
+  party: majority
+  rank: 7
+  bioguide: H001104
+- name: Bernard Sanders
+  party: minority
+  rank: 2
+  bioguide: S000033
+SSEV15:
+- name: Jon Husted
+  party: majority
+  rank: 6
+  bioguide: H001104
+- name: Bernard Sanders
+  party: minority
+  rank: 2
+  bioguide: S000033
+SSFI:
+- name: Bernard Sanders
+  party: minority
+  rank: 9
+  bioguide: S000033
+- name: Peter Welch
+  party: minority
+  rank: 13
+  bioguide: W000800
+SSFI12:
+- name: Peter Welch
+  party: minority
+  rank: 5
+  bioguide: W000800
+SSFI10:
+- name: Bernard Sanders
+  party: minority
+  rank: 6
+  bioguide: S000033
+- name: Peter Welch
+  party: minority
+  rank: 10
+  bioguide: W000800
+SSFI02:
+- name: Bernard Sanders
+  party: minority
+  rank: 1
+  title: Ranking Member
+  bioguide: S000033
+SSFI11:
+- name: Bernard Sanders
+  party: minority
+  rank: 6
+  bioguide: S000033
+SSHR:
+- name: Jon Husted
+  party: majority
+  rank: 10
+  bioguide: H001104
+- name: Bernard Sanders
+  party: minority
+  rank: 1
+  title: Ranking Member
+  bioguide: S000033
+SSHR09:
+- name: Jon Husted
+  party: majority
+  rank: 6
+  bioguide: H001104
+- name: Bernard Sanders
+  party: minority
+  rank: 7
+  title: Ex Officio
+  bioguide: S000033
+SSHR11:
+- name: Jon Husted
+  party: majority
+  rank: 6
+  bioguide: H001104
+- name: Bernard Sanders
+  party: minority
+  rank: 7
+  title: Ex Officio
+  bioguide: S000033
+SSHR12:
+- name: Jon Husted
+  party: majority
+  rank: 7
+  bioguide: H001104
+- name: Bernard Sanders
+  party: minority
+  rank: 9
+  title: Ex Officio
+  bioguide: S000033
+SSGA:
+- name: Bernie Moreno
+  party: majority
+  rank: 6
+  bioguide: M001242
+SSGA01:
+- name: Bernie Moreno
+  party: majority
+  rank: 5
+  bioguide: M001242
+SSGA22:
+- name: Bernie Moreno
+  party: majority
+  rank: 3
+  bioguide: M001242
+SSRA:
+- name: Peter Welch
+  party: minority
+  rank: 8
+  bioguide: W000800
+SSSB:
+- name: Jon Husted
+  party: majority
+  rank: 10
+  bioguide: H001104
+SSBU:
+- name: Bernie Moreno
+  party: majority
+  rank: 9
+  bioguide: M001242
+- name: Bernard Sanders
+  party: minority
+  rank: 4
+  bioguide: S000033
+SSJU:
+- name: Peter Welch
+  party: minority
+  rank: 9
+  bioguide: W000800
+SSJU01:
+- name: Peter Welch
+  party: minority
+  rank: 4
+  bioguide: W000800
+SSJU25:
+- name: Peter Welch
+  party: minority
+  rank: 5
+  bioguide: W000800
+SSJU26:
+- name: Peter Welch
+  party: minority
+  rank: 5
+  bioguide: W000800
+SSJU21:
+- name: Peter Welch
+  party: minority
+  rank: 1
+  title: Ranking Member
+  bioguide: W000800
+SSVA:
+- name: Bernard Sanders
+  party: minority
+  rank: 3
+  bioguide: S000033
+SPAG:
+- name: Jon Husted
+  party: majority
+  rank: 7
+  bioguide: H001104
+SCNC:
+- name: Bernie Moreno
+  party: majority
+  rank: 4
+  bioguide: M001242
+HSPW:
+- name: Eleanor Holmes Norton
+  party: minority
+  rank: 2
+  bioguide: N000147
+HSJU:
+- name: Jim Jordan
+  party: majority
+  rank: 1
+  title: Chair
+  bioguide: J000289
+- name: Becca Balint
+  party: minority
+  rank: 13
+  bioguide: B001318
+HSAP:
+- name: Marcy Kaptur
+  party: minority
+  rank: 3
+  bioguide: K000009
+HSGO:
+- name: Jim Jordan
+  party: majority
+  rank: 2
+  bioguide: J000289
+- name: Eleanor Holmes Norton
+  party: minority
+  rank: 2
+  bioguide: N000147
+HSIF:
+- name: Robert E. Latta
+  party: majority
+  rank: 2
+  bioguide: L000566
+HSBA:
+- name: Joyce Beatty
+  party: minority
+  rank: 10
+  bioguide: B001281
+HSBU:
+- name: Becca Balint
+  party: minority
+  rank: 10
+  bioguide: B001318
+- name: Marcy Kaptur
+  party: minority
+  rank: 11
+  bioguide: K000009
+SSBK13:
+- name: Bernie Moreno
+  party: majority
+  rank: 4
+  bioguide: M001242
+HSPW05:
+- name: Eleanor Holmes Norton
+  party: minority
+  rank: 13
+  bioguide: N000147
+HSPW02:
+- name: Eleanor Holmes Norton
+  party: minority
+  rank: 15
+  bioguide: N000147
+HSPW12:
+- name: Eleanor Holmes Norton
+  party: minority
+  rank: 1
+  title: Ranking Member
+  bioguide: N000147
+HSPW13:
+- name: Eleanor Holmes Norton
+  party: minority
+  rank: 2
+  bioguide: N000147
+HSAP01:
+- name: Marcy Kaptur
+  party: minority
+  rank: 5
+  bioguide: K000009
+HSAP02:
+- name: Marcy Kaptur
+  party: minority
+  rank: 2
+  bioguide: K000009
+HSGO24:
+- name: Eleanor Holmes Norton
+  party: minority
+  rank: 2
+  bioguide: N000147
+HSIF03:
+- name: Robert E. Latta
+  party: majority
+  rank: 1
+  title: Chair
+  bioguide: L000566
+HSIF18:
+- name: Robert E. Latta
+  party: majority
+  rank: 3
+  bioguide: L000566
+HSJU10:
+- name: Becca Balint
+  party: minority
+  rank: 5
+  bioguide: B001318
+HSIF16:
+- name: Robert E. Latta
+  party: majority
+  rank: 3
+  bioguide: L000566
+HSBA10:
+- name: Joyce Beatty
+  party: minority
+  rank: 1
+  title: Ranking Member
+  bioguide: B001281
+HSJU05:
+- name: Becca Balint
+  party: minority
+  rank: 3
+  bioguide: B001318
+HSBA20:
+- name: Joyce Beatty
+  party: minority
+  rank: 9
+  bioguide: B001281
+HSAP10:
+- name: Marcy Kaptur
+  party: minority
+  rank: 1
+  title: Ranking Member
+  bioguide: K000009

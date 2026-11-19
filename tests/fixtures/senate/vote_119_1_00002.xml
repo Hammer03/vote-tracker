@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<roll_call_vote>
+  <congress>119</congress>
+  <session>1</session>
+  <congress_year>2025</congress_year>
+  <vote_number>2</vote_number>
+  <vote_date>January 21, 2025,  11:05 AM</vote_date>
+  <vote_question_text>On the Nomination PN12</vote_question_text>
+  <vote_document_text>Example Nominee, of Ohio, to be an Assistant Secretary</vote_document_text>
+  <vote_result_text>Nomination Confirmed (3-1)</vote_result_text>
+  <question>On the Nomination</question>
+  <vote_title>Confirmation: Example Nominee, of Ohio, to be an Assistant Secretary</vote_title>
+  <majority_requirement>1/2</majority_requirement>
+  <vote_result>Nomination Confirmed</vote_result>
+  <document>
+    <document_congress>119</document_congress>
+    <document_type>PN</document_type>
+    <document_number>12</document_number>
+    <document_name>PN12</document_name>
+    <document_title>Example Nominee, of Ohio, to be an Assistant Secretary</document_title>
+  </document>
+  <count>
+    <yeas>3</yeas>
+    <nays>1</nays>
+    <present></present>
+    <absent>1</absent>
+  </count>
+  <members>
+    <member>
+      <last_name>Husted</last_name>
+      <first_name>Jon</first_name>
+      <party>R</party>
+      <state>OH</state>
+      <vote_cast>Not Voting</vote_cast>
+      <lis_member_id>S438</lis_member_id>
+    </member>
+    <member>
+      <last_name>Moreno</last_name>
+      <first_name>Bernie</first_name>
+      <party>R</party>
+      <state>OH</state>
+      <vote_cast>Yea</vote_cast>
+      <lis_member_id>S434</lis_member_id>
+    </member>
+    <member>
+      <last_name>Sanders</last_name>
+      <first_name>Bernard</first_name>
+      <party>I</party>
+      <state>VT</state>
+      <vote_cast>Nay</vote_cast>
+      <lis_member_id>S313</lis_member_id>
+    </member>
+    <member>
+      <last_name>Welch</last_name>
+      <first_name>Peter</first_name>
+      <party>D</party>
+      <state>VT</state>
+      <vote_cast>Yea</vote_cast>
+      <lis_member_id>S422</lis_member_id>
+    </member>
+  </members>
+</roll_call_vote>

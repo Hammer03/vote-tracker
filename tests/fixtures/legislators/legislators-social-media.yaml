@@ -1,0 +1,95 @@
+- id:
+    bioguide: W000800
+    thomas: 01879
+    govtrack: 412239
+  social:
+    facebook: PeterWelch
+    youtube: reppeterwelch
+    youtube_id: UC0YfApJx6qNaAQ-ir93U8xA
+    twitter: PeterWelch
+    instagram: reppeterwelch
+    instagram_id: 1559860900
+    twitter_id: 1410590874
+- id:
+    bioguide: S000033
+    thomas: '01010'
+    govtrack: 400357
+  social:
+    twitter: SenSanders
+    facebook: senatorsanders
+    youtube: senatorsanders
+    youtube_id: UCD_DaKNac0Ta-2PeHuoQ1uA
+    twitter_id: 29442313
+- id:
+    bioguide: N000147
+    thomas: 00868
+    govtrack: 400295
+  social:
+    twitter: EleanorNorton
+    facebook: CongresswomanNorton
+    youtube: EleanorHNorton
+    youtube_id: UChRrAXUGylfxJjbquC6aUjQ
+    twitter_id: 23600262
+    mastodon: '@CongresswomanNorton@Mastodon.social'
+    instagram: congresswomannorton
+- id:
+    bioguide: L000566
+    thomas: 01885
+    govtrack: 412256
+  social:
+    twitter: BobLatta
+    facebook: boblatta
+    youtube: CongressmanBobLatta
+    youtube_id: UCVSBVHoWu-eWnBBQaMKZ_sQ
+    instagram: boblatta
+    instagram_id: 26367713
+    twitter_id: 15394954
+- id:
+    bioguide: K000009
+    thomas: '00616'
+    govtrack: 400211
+  social:
+    twitter: RepMarcyKaptur
+    facebook: repmarcykaptur
+    youtube: USRepMarcyKaptur
+    youtube_id: UCIJUNf22o09nO02oQPLKQ6w
+    twitter_id: 581141508
+    instagram: repmarcykaptur
+- id:
+    bioguide: J000289
+    thomas: 01868
+    govtrack: 412226
+  social:
+    twitter: Jim_Jordan
+    facebook: repjimjordan
+    youtube: RepJimJordan
+    youtube_id: UCPFBhS00ivPV585GlnNlyqA
+    twitter_id: 18166778
+- id:
+    bioguide: B001281
+    govtrack: 412565
+    thomas: '02153'
+  social:
+    twitter: RepBeatty
+    facebook: '656884781042633'
+    youtube_id: UCtVl3kb7Xvt3pY7l6x-M6LA
+    instagram: repbeatty
+    instagram_id: 554027718
+    twitter_id: 1531521632
+    youtube: RepBeatty
+- id:
+    bioguide: B001318
+    govtrack: 456948
+  social:
+    twitter: RepBeccaB
+    twitter_id: 1606115178210365448
+    facebook: repbeccab
+    instagram: repbeccab
+    youtube: repbeccab
+    youtube_id: UCMC34yudOdRW3VNzocAlhtw
+- id:
+    bioguide: M001242
+    govtrack: 456967
+  social:
+    twitter: berniemoreno
+    instagram: Berniemorenoforohio

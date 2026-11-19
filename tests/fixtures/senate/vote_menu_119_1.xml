@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vote_summary>
+  <congress>119</congress>
+  <session>1</session>
+  <congress_year>2025</congress_year>
+  <votes>
+    <vote>
+      <vote_number>00002</vote_number>
+      <vote_date>21-Jan</vote_date>
+      <issue>PN 12</issue>
+      <question>On the Nomination</question>
+      <result>Confirmed</result>
+      <vote_tally><yeas>3</yeas><nays>1</nays></vote_tally>
+      <title>Confirmation: Example Nominee, of Ohio, to be an Assistant Secretary</title>
+    </vote>
+    <vote>
+      <vote_number>00001</vote_number>
+      <vote_date>15-Jan</vote_date>
+      <issue>S. 5</issue>
+      <question>On Passage of the Bill</question>
+      <result>Passed</result>
+      <vote_tally><yeas>2</yeas><nays>3</nays></vote_tally>
+      <title>A bill to require example reporting</title>
+    </vote>
+  </votes>
+</vote_summary>

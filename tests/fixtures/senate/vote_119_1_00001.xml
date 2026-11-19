@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<roll_call_vote>
+  <congress>119</congress>
+  <session>1</session>
+  <congress_year>2025</congress_year>
+  <vote_number>1</vote_number>
+  <vote_date>January 15, 2025,  02:30 PM</vote_date>
+  <modify_date>January 15, 2025,  03:01 PM</modify_date>
+  <vote_question_text>On Passage of the Bill S. 5</vote_question_text>
+  <vote_document_text>A bill to require example reporting</vote_document_text>
+  <vote_result_text>Bill Failed (2-3)</vote_result_text>
+  <question>On Passage of the Bill</question>
+  <vote_title>A bill to require example reporting</vote_title>
+  <majority_requirement>1/2</majority_requirement>
+  <vote_result>Bill Failed</vote_result>
+  <document>
+    <document_congress>119</document_congress>
+    <document_type>S.</document_type>
+    <document_number>5</document_number>
+    <document_name>S. 5</document_name>
+    <document_title>A bill to require example reporting</document_title>
+    <document_short_title></document_short_title>
+  </document>
+  <amendment>
+    <amendment_number></amendment_number>
+    <amendment_to_amendment_number></amendment_to_amendment_number>
+    <amendment_to_amendment_to_amendment_number></amendment_to_amendment_to_amendment_number>
+    <amendment_to_document_number></amendment_to_document_number>
+    <amendment_to_document_short_title></amendment_to_document_short_title>
+    <amendment_purpose></amendment_purpose>
+  </amendment>
+  <count>
+    <yeas>2</yeas>
+    <nays>3</nays>
+    <present></present>
+    <absent>0</absent>
+  </count>
+  <tie_breaker>
+    <by_whom></by_whom>
+    <tie_breaker_vote></tie_breaker_vote>
+  </tie_breaker>
+  <members>
+    <member>
+      <member_full>Husted (R-OH)</member_full>
+      <last_name>Husted</last_name>
+      <first_name>Jon</first_name>
+      <party>R</party>
+      <state>OH</state>
+      <vote_cast>Yea</vote_cast>
+      <lis_member_id>S438</lis_member_id>
+    </member>
+    <member>
+      <member_full>Moreno (R-OH)</member_full>
+      <last_name>Moreno</last_name>
+      <first_name>Bernie</first_name>
+      <party>R</party>
+      <state>OH</state>
+      <vote_cast>Yea</vote_cast>
+      <lis_member_id>S434</lis_member_id>
+    </member>
+    <member>
+      <member_full>Sanders (I-VT)</member_full>
+      <last_name>Sanders</last_name>
+      <first_name>Bernard</first_name>
+      <party>I</party>
+      <state>VT</state>
+      <vote_cast>Nay</vote_cast>
+      <lis_member_id>S313</lis_member_id>
+    </member>
+    <member>
+      <member_full>Senator (D-OH)</member_full>
+      <last_name>Senator</last_name>
+      <first_name>Former</first_name>
+      <party>D</party>
+      <state>OH</state>
+      <vote_cast>Nay</vote_cast>
+      <lis_member_id>S999</lis_member_id>
+    </member>
+    <member>
+      <member_full>Welch (D-VT)</member_full>
+      <last_name>Welch</last_name>
+      <first_name>Peter</first_name>
+      <party>D</party>
+      <state>VT</state>
+      <vote_cast>Nay</vote_cast>
+      <lis_member_id>S422</lis_member_id>
+    </member>
+  </members>
+</roll_call_vote>

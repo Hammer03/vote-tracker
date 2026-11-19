@@ -1,0 +1,14 @@
+- id:
+    bioguide: X000999
+    lis: S999
+  name:
+    first: Former
+    last: Senator
+    official_full: Former Senator
+  terms:
+  - type: sen
+    start: '2019-01-03'
+    end: '2025-01-03'
+    state: OH
+    party: Democrat
+    class: 1

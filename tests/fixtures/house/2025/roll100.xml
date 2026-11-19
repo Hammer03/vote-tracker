@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rollcall-vote PUBLIC "-//US House of Representatives//DTD rollcall-vote//EN" "http://clerk.house.gov/evs/vote.dtd">
+<rollcall-vote>
+<vote-metadata>
+<majority>R</majority>
+<congress>119</congress>
+<session>1st</session>
+<chamber>U.S. House of Representatives</chamber>
+<rollcall-num>100</rollcall-num>
+<legis-num>H R 1228</legis-num>
+<vote-question>On Motion to Suspend the Rules and Pass</vote-question>
+<vote-type>2/3 YEA-AND-NAY</vote-type>
+<vote-result>Passed</vote-result>
+<action-date>9-Apr-2025</action-date>
+<action-time time-etz="17:14">5:14 PM</action-time>
+<vote-desc>Prioritizing Veterans Survivors Act</vote-desc>
+<vote-totals>
+<totals-by-party-header>
+<party-header>Party</party-header>
+<yea-header>Yeas</yea-header>
+<nay-header>Nays</nay-header>
+<present-header>Answered “Present”</present-header>
+<not-voting-header>Not Voting</not-voting-header>
+</totals-by-party-header>
+<totals-by-party>
+<party>Republican</party>
+<yea-total>2</yea-total>
+<nay-total>0</nay-total>
+<present-total>0</present-total>
+<not-voting-total>0</not-voting-total>
+</totals-by-party>
+<totals-by-party>
+<party>Democratic</party>
+<yea-total>0</yea-total>
+<nay-total>2</nay-total>
+<present-total>0</present-total>
+<not-voting-total>1</not-voting-total>
+</totals-by-party>
+<totals-by-vote>
+<total-stub>Totals</total-stub>
+<yea-total>2</yea-total>
+<nay-total>2</nay-total>
+<present-total>0</present-total>
+<not-voting-total>1</not-voting-total>
+</totals-by-vote>
+</vote-totals>
+</vote-metadata>
+<vote-data>
+<recorded-vote><legislator name-id="B001281" sort-field="Beatty" unaccented-name="Beatty" party="D" state="OH" role="legislator">Beatty</legislator><vote>Not Voting</vote></recorded-vote>
+<recorded-vote><legislator name-id="B001318" sort-field="Balint" unaccented-name="Balint" party="D" state="VT" role="legislator">Balint</legislator><vote>Nay</vote></recorded-vote>
+<recorded-vote><legislator name-id="J000289" sort-field="Jordan" unaccented-name="Jordan" party="R" state="OH" role="legislator">Jordan</legislator><vote>Yea</vote></recorded-vote>
+<recorded-vote><legislator name-id="K000009" sort-field="Kaptur" unaccented-name="Kaptur" party="D" state="OH" role="legislator">Kaptur</legislator><vote>Nay</vote></recorded-vote>
+<recorded-vote><legislator name-id="L000566" sort-field="Latta" unaccented-name="Latta" party="R" state="OH" role="legislator">Latta</legislator><vote>Yea</vote></recorded-vote>
+</vote-data>
+</rollcall-vote>

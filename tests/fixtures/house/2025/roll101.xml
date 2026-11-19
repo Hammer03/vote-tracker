@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rollcall-vote>
+<vote-metadata>
+<majority>R</majority>
+<congress>119</congress>
+<session>1st</session>
+<chamber>U.S. House of Representatives</chamber>
+<rollcall-num>101</rollcall-num>
+<legis-num>H R 1228</legis-num>
+<vote-question>On Agreeing to the Amendment</vote-question>
+<amendment-num>3</amendment-num>
+<amendment-author>Kaptur of Ohio Amendment No. 3</amendment-author>
+<vote-type>RECORDED VOTE</vote-type>
+<vote-result>Agreed to</vote-result>
+<action-date>10-Apr-2025</action-date>
+<action-time time-etz="10:02">10:02 AM</action-time>
+<vote-desc>Prioritizing Veterans Survivors Act</vote-desc>
+</vote-metadata>
+<vote-data>
+<recorded-vote><legislator name-id="B001281" party="D" state="OH" role="legislator">Beatty</legislator><vote>Aye</vote></recorded-vote>
+<recorded-vote><legislator name-id="B001318" party="D" state="VT" role="legislator">Balint</legislator><vote>Aye</vote></recorded-vote>
+<recorded-vote><legislator name-id="J000289" party="R" state="OH" role="legislator">Jordan</legislator><vote>No</vote></recorded-vote>
+<recorded-vote><legislator name-id="K000009" party="D" state="OH" role="legislator">Kaptur</legislator><vote>Aye</vote></recorded-vote>
+<recorded-vote><legislator name-id="L000566" party="R" state="OH" role="legislator">Latta</legislator><vote>Aye</vote></recorded-vote>
+</vote-data>
+</rollcall-vote>

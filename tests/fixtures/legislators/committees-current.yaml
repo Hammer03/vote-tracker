@@ -1,0 +1,517 @@
+- type: house
+  name: House Committee on Appropriations
+  url: https://appropriations.house.gov/
+  minority_url: https://republicans-appropriations.house.gov/
+  thomas_id: HSAP
+  house_committee_id: AP
+  subcommittees:
+  - name: Agriculture, Rural Development, Food and Drug Administration, and Related
+      Agencies
+    thomas_id: '01'
+    address: 2362A RHOB; Washington, DC 20515
+    phone: (202) 225-2638
+  - name: Defense
+    thomas_id: '02'
+    address: H405 CAPITOL; Washington, DC 20515
+    phone: (202) 225-2847
+  - name: Energy and Water Development and Related Agencies
+    thomas_id: '10'
+    address: 2362B RHOB; Washington, DC 20515
+    phone: (202) 225-3421
+  address: H307 CAPITOL; Washington, DC 20515-6015
+  phone: (202) 225-2771
+  jurisdiction: The House Committee on Appropriations is responsible for legislation
+    allocating federal funds prior to expenditure from the treasury. Appropriations
+    are generally limited to the levels set by the Budget Resolution drafted by the
+    House Committee on the Budget. The Committee is also responsible for supplemental
+    spending bills, which are sometimes needed in the middle of a fiscal year to compensate
+    for emergency expenses.
+  jurisdiction_source: https://appropriations.house.gov/about/
+  youtube_id: UCMaSlF09S0fpoRshS2t_7XA
+- type: house
+  name: House Committee on Financial Services
+  url: https://financialservices.house.gov/
+  minority_url: https://republicans-financialservices.house.gov/
+  thomas_id: HSBA
+  house_committee_id: BA
+  subcommittees:
+  - name: Financial Institutions
+    thomas_id: '20'
+    address: 2129 RHOB; Washington, DC 20515
+    phone: (202) 225-7502
+  - name: National Security, Illicit Finance, and International Financial Institutions
+    thomas_id: '10'
+    address: 2129 RHOB; Washington, DC 20515
+    phone: (202) 225-7502
+  address: 2129 RHOB; Washington, DC 20515-6050
+  phone: (202) 225-7502
+  jurisdiction: "The House Financial Services Committee has jurisdiction over issues\
+    \ pertaining to the economy, the banking system, housing, insurance, and securities\
+    \ and exchanges. Additionally, the Committee also has jurisdiction over monetary\
+    \ policy, international finance, international monetary organizations, and efforts\
+    \ to combat terrorist financing. The Committee oversees the Nation\u2019s economy\
+    \ through its oversight of the Federal Reserve Board and individual reserve banks,\
+    \ the Treasury, the production and distribution of currency, and the Nation\u2019\
+    s capital markets."
+  jurisdiction_source: https://financialservices.house.gov/about/
+  youtube_id: UCiGw0gRK-daU7Xv4oDMr9Hg
+- type: house
+  name: House Committee on the Budget
+  url: https://budget.house.gov/
+  minority_url: https://democrats-budget.house.gov/
+  thomas_id: HSBU
+  house_committee_id: BU
+  address: 204 CHOB; Washington, DC 20515-6065
+  phone: (202) 226-7270
+  rss_url: https://budget.house.gov/news/rss.aspx
+  minority_rss_url: https://democrats-budget.house.gov/rss.xml
+  jurisdiction: The House Committee on the Budget is responsible for drafting a concurrent
+    resolution on the budget for congressional action on spending, revenue, and debt-limit
+    legislation. The Budget Resolution must be jointly agreed to by both the House
+    and the Senate, but does not need to be signed by the President. The Committee
+    is also responsible for enforcing the Budget Resolution by informing representatives
+    of violations to the budget, and by working with other committees, such as the
+    Committee on Appropriations, to prevent potential violations.
+  jurisdiction_source: https://budget.house.gov/about/
+  youtube_id: UCwzia2rpHJkowAXK-IF9E0w
+  subcommittees: []
+- type: house
+  name: House Committee on Oversight and Government Reform
+  url: https://oversight.house.gov/
+  minority_url: https://republicans-oversight.house.gov/
+  thomas_id: HSGO
+  house_committee_id: GO
+  subcommittees:
+  - name: Government Operations
+    thomas_id: '24'
+    address: 2157 RHOB; Washington, DC 20515
+    phone: (202) 225-5074
+  address: 2157 RHOB; Washington, DC 20515-6143
+  phone: (202) 225-5074
+  jurisdiction: The committee oversees the federal government and all of its agencies
+    to ensure efficiency, effectiveness, and accountability. The Committee oversees
+    government operations, health care, information technology, interior, energy and
+    environment, national security, and intergovernmental affairs.
+  jurisdiction_source: https://oversight.house.gov/about/
+  youtube_id: UCXSlyao4qkUFiPqghptHtZA
+- type: house
+  name: House Committee on Energy and Commerce
+  url: https://energycommerce.house.gov/
+  minority_url: https://republicans-energycommerce.house.gov/
+  thomas_id: HSIF
+  house_committee_id: IF
+  subcommittees:
+  - name: Communications and Technology
+    thomas_id: '16'
+    address: 2125 RHOB; Washington, DC 20515
+    phone: (202) 225-3641
+  - name: Energy
+    thomas_id: '03'
+    address: 2125 RHOB; Washington, DC 20515
+    phone: (202) 225-3641
+  - name: Environment
+    thomas_id: '18'
+    address: 2125 RHOB; Washington, DC 20515
+    phone: (202) 225-3641
+  address: 2125 RHOB; Washington, DC 20515-6115
+  phone: (202) 225-3641
+  jurisdiction: The House Committee on Energy and Commerce has legislative jurisdiction
+    on matters related to telecommunications, consumer protection, food and drug safety,
+    public health research, environmental quality, energy policy, and interstate and
+    foreign commerce. It oversees multiple cabinet-level Departments and independent
+    agencies, including the Departments of Energy, Health and Human Services, Commerce,
+    and Transportation, as well as the Environmental Protection Agency, the Federal
+    Trade Commission, the Food and Drug Administration, and the Federal Communications
+    Commission.
+  jurisdiction_source: https://energycommerce.house.gov/committee-history/
+  youtube_id: UCCbD3bkHRcwiBsaL1lWE_QQ
+- type: house
+  name: House Committee on the Judiciary
+  url: https://judiciary.house.gov/
+  minority_url: https://republicans-judiciary.house.gov/
+  thomas_id: HSJU
+  house_committee_id: JU
+  subcommittees:
+  - name: The Constitution and Limited Government
+    thomas_id: '10'
+    address: 2138 RHOB; Washington, DC 20515
+    phone: (202) 225-6906
+  - name: The Administrative State, Regulatory Reform, and Antitrust
+    thomas_id: '05'
+    address: 2138 RHOB; Washington, DC 20515
+    phone: (202) 225-6906
+  address: 2138 RHOB; Washington, DC 20515-6216
+  phone: (202) 225-6906
+  minority_rss_url: https://democrats-judiciary.house.gov/rss.xml
+  jurisdiction: "The Committee on the Judiciary has jurisdiction over matters relating\
+    \ to the administration of justice in federal courts, administrative bodies, and\
+    \ law enforcement agencies. Its role in impeachment proceedings has also brought\
+    \ it much attention.  The committee\u2019s jurisdiction also includes a range\
+    \ of issues such as bankruptcy, espionage, terrorism, the protection of civil\
+    \ liberties, constitutional amendments, and more. The Committee oversees the Departments\
+    \ of Justice and Homeland Security."
+  jurisdiction_source: https://judiciary.house.gov/about-the-committee/
+  youtube_id: UCVvv3JRCVQAl6ovogDum4hA
+- type: house
+  name: House Committee on Transportation and Infrastructure
+  url: https://transportation.house.gov/
+  minority_url: https://republicans-transportation.house.gov/
+  thomas_id: HSPW
+  house_committee_id: PW
+  subcommittees:
+  - name: Aviation
+    thomas_id: '05'
+    address: 2165 RHOB; Washington, DC 20515
+    phone: (202) 225-9446
+  - name: Economic Development, Public Buildings, and Emergency Management
+    thomas_id: '13'
+    address: 2165 RHOB; Washington, DC 20515
+    phone: (202) 225-9446
+  - name: Highways and Transit
+    thomas_id: '12'
+    address: 2165 RHOB; Washington, DC 20515
+    phone: (202) 225-9446
+  - name: Water Resources and Environment
+    thomas_id: '02'
+    address: 2165 RHOB; Washington, DC 20515
+    phone: (202) 225-9446
+  address: 2165 RHOB; Washington, DC 20515-6256
+  phone: (202) 225-9446
+  jurisdiction: 'The Transportation and Infrastructure Committee has jurisdiction
+    over all modes of transportation: aviation, maritime and waterborne transportation,
+    highways, bridges, mass transit, and railroads. The Committee also has jurisdiction
+    over other aspects of our national infrastructure, such as clean water and waste
+    water management, the transport of resources by pipeline, flood damage reduction,
+    the management of federally owned real estate and public buildings, the development
+    of economically depressed rural and urban areas, disaster preparedness and response,
+    and hazardous materials transportation.'
+  jurisdiction_source: https://transportation.house.gov/about/history.htm
+  youtube_id: UChc8bTPtZgTZDDLJ6UWJgxA
+- type: senate
+  name: United States Senate Caucus on International Narcotics Control
+  url: http://www.drugcaucus.senate.gov/
+  thomas_id: SCNC
+  senate_committee_id: SCNC
+  jurisdiction: "The Senate Caucus on International Narcotics Control was created\
+    \ to \u201Cmonitor and encourage United States Government and private programs\
+    \ seeking to expand international cooperation against drug abuse and narcotics\
+    \ trafficking\u201D and to \u201Cmonitor and promote international compliance\
+    \ with narcotics control treaties.\u201D As a formal organization of the U.S.\
+    \ Senate, the Caucus has the status of a standing committee. The Caucus exercises\
+    \ oversight on a wide range of issues, including international counternarcotics\
+    \ assistance and domestic drug prevention and treatment programs. The Caucus has\
+    \ held numerous hearings over the years and has issued a number of reports on\
+    \ U.S. narcotics control policy."
+  jurisdiction_source: http://www.drugcaucus.senate.gov/content/about
+  youtube_id: UCD6CIIrqCTE08ZXPCzhoNyA
+  subcommittees: []
+- type: senate
+  name: Senate Special Committee on Aging
+  url: http://www.aging.senate.gov/
+  thomas_id: SPAG
+  senate_committee_id: SPAG
+  wikipedia: United States Senate Special Committee on Aging
+  jurisdiction: The Senate Special Committee on Aging conducts a continuing study
+    of issues related to older Americans such as health, income, lifestyle, and more.
+    The committee reports its findings back to the Senate at least once a year. No
+    bills are referred to this committee and the committee has no legislative jurisdiction.
+  jurisdiction_source: https://www.aging.senate.gov/about/rules
+  subcommittees: []
+- type: senate
+  name: Senate Committee on Agriculture, Nutrition, and Forestry
+  url: http://www.agriculture.senate.gov/
+  thomas_id: SSAF
+  senate_committee_id: SSAF
+  subcommittees:
+  - name: Conservation, Forestry, Natural Resources, and Biotechnology
+    thomas_id: '14'
+    wikipedia: United States Senate Agriculture Subcommittee on Conservation, Forestry
+      and Natural Resources
+  - name: Rural Development, Energy, and Credit
+    thomas_id: '15'
+    wikipedia: United States Senate Agriculture Subcommittee on Jobs, Rural Economic
+      Growth and Energy Innovation
+  - name: Livestock, Dairy, Poultry, and Food Safety
+    thomas_id: '17'
+    wikipedia: United States Senate Agriculture Subcommittee on Livestock, Dairy,
+      Poultry, Marketing and Agriculture Security
+  rss_url: http://www.ag.senate.gov/rss/feeds/?type=press&amp;groups=democrat
+  minority_rss_url: http://www.ag.senate.gov/rss/feeds/?type=press&amp;groups=republican
+  wikipedia: United States Senate Committee on Agriculture, Nutrition and Forestry
+  jurisdiction: The Senate Committee on Agriculture has legislative jurisdiction over
+    agriculture, food, and nutrition.
+  jurisdiction_source: https://www.agriculture.senate.gov/about/jurisdiction
+- type: senate
+  name: Senate Committee on Appropriations
+  url: http://www.appropriations.senate.gov/
+  thomas_id: SSAP
+  senate_committee_id: SSAP
+  subcommittees:
+  - name: Financial Services and General Government
+    thomas_id: '23'
+    wikipedia: United States Senate Appropriations Subcommittee on Financial Services
+      and General Government
+  - name: Department of Interior, Environment, and Related Agencies
+    thomas_id: '17'
+    wikipedia: United States Senate Appropriations Subcommittee on Interior, Environment,
+      and Related Agencies
+  - name: Departments of Labor, Health and Human Services, and Education, and Related
+      Agencies
+    thomas_id: '18'
+    wikipedia: United States Senate Appropriations Subcommittee on Labor, Health and
+      Human Services, Education, and Related Agencies
+  - name: State, Foreign Operations, and Related Programs
+    thomas_id: '20'
+    wikipedia: United States Senate Appropriations Subcommittee on the Department
+      of State, Foreign Operations, and Related Programs
+  - name: Agriculture, Rural Development, Food and Drug Administration, and Related
+      Agencies
+    thomas_id: '01'
+    wikipedia: United States Senate Appropriations Subcommittee on Agriculture, Rural
+      Development, Food and Drug Administration, and Related Agencies
+  - name: Legislative Branch
+    thomas_id: 08
+    wikipedia: United States Senate Appropriations Subcommittee on Legislative Branch
+  wikipedia: United States Senate Committee on Appropriations
+  jurisdiction: The Senate Committee on Appropriations is responsible for legislation
+    allocating federal funds prior to expenditure from the treasury. Appropriations
+    are generally limited to the levels set by the Budget Resolution drafted by the
+    Senate Committee on the Budget. The Committee is also responsible for supplemental
+    spending bills, which are sometimes needed in the middle of a fiscal year to compensate
+    for emergency expenses.
+  jurisdiction_source: https://www.appropriations.senate.gov/about/jurisdiction
+- type: senate
+  name: Senate Committee on Banking, Housing, and Urban Affairs
+  url: http://banking.senate.gov/
+  thomas_id: SSBK
+  senate_committee_id: SSBK
+  subcommittees:
+  - name: Securities, Insurance, and Investment
+    thomas_id: '04'
+    wikipedia: United States Senate Banking Subcommittee on Securities, Insurance,
+      and Investment
+  - name: Housing, Transportation, and Community Development
+    thomas_id: 09
+    wikipedia: United States Senate Banking Subcommittee on Housing, Transportation,
+      and Community Development
+  - thomas_id: '13'
+    name: Digital Assets
+  wikipedia: United States Senate Committee on Banking, Housing, and Urban Affairs
+  jurisdiction: The Senate Committee on Banking, Housing, and Urban Affairs not only
+    has legislative jurisdiction on the topics listed in its name, but also on a range
+    of other topics such as economic stability, federal monetary policy, and government
+    contracts.
+  jurisdiction_source: https://www.banking.senate.gov/public/index.cfm/about
+- type: senate
+  name: Senate Committee on the Budget
+  url: http://www.budget.senate.gov/
+  thomas_id: SSBU
+  senate_committee_id: SSBU
+  rss_url: http://www.budget.senate.gov/democratic/index.cfm?a=RSS.Feed&amp;Type=press-releases,statements
+  minority_rss_url: http://www.budget.senate.gov/republican/public/index.cfm/rss/feed
+  wikipedia: United States Senate Committee on the Budget
+  jurisdiction: The Senate Committee on the Budget is responsible for drafting a concurrent
+    resolution on the budget for congressional action on spending, revenue, and debt-limit
+    legislation. The Budget Resolution must be jointly agreed to by both the House
+    and the Senate, but does not need to be signed by the President. The Committee
+    is also responsible for enforcing the Budget Resolution by informing senators
+    of violations to the budget, and by working with other committees, such as the
+    Committee on Appropriations, to prevent potential violations.
+  jurisdiction_source: https://www.budget.senate.gov/about/committee-history
+  subcommittees: []
+- type: senate
+  name: Senate Committee on Commerce, Science, and Transportation
+  url: http://www.commerce.senate.gov/
+  thomas_id: SSCM
+  senate_committee_id: SSCM
+  subcommittees:
+  - thomas_id: '34'
+    name: Telecommunications and Media
+  - thomas_id: '36'
+    name: Coast Guard, Maritime, and Fisheries
+  - thomas_id: '37'
+    name: Science, Manufacturing, and Competitiveness
+  - thomas_id: '38'
+    name: Surface Transportation, Freight, Pipelines, and Safety
+  wikipedia: United States Senate Committee on Commerce, Science and Transportation
+  jurisdiction: The Senate Committee on Commerce, Science, and Transportation has
+    legislative jurisdiction on matters related to science and technology, oceans
+    policy, transportation, communications, and consumer affairs.
+  jurisdiction_source: https://www.commerce.senate.gov/public/index.cfm/jurisdiction
+- type: senate
+  name: Senate Committee on Environment and Public Works
+  url: http://www.epw.senate.gov/
+  thomas_id: SSEV
+  senate_committee_id: SSEV
+  subcommittees:
+  - name: Clean Air, Climate, and Nuclear Innovation and Safety
+    thomas_id: '10'
+    wikipedia: United States Senate Environment and Public Works Subcommittee on Clean
+      Air and Nuclear Safety
+  - name: Chemical Safety, Waste Management, Environmental Justice, and Regulatory
+      Oversight
+    thomas_id: 09
+    wikipedia: United States Senate Environment and Public Works Subcommittee on Superfund,
+      Toxics and Environmental Health
+  - thomas_id: '15'
+    name: Fisheries, Water, and Wildlife
+    wikipedia: United States Senate Environment and Public Works Subcommittee on Water
+      and Wildlife
+  rss_url: http://www.epw.senate.gov/public/index.cfm?FuseAction=RSS.Majority
+  minority_rss_url: http://www.epw.senate.gov/public/index.cfm?FuseAction=RSS.Minority
+  wikipedia: United States Senate Committee on Environment and Public Works
+  jurisdiction: The Senate Committee on Environment and Public Works has legislative
+    jurisdiction on matters related to environmental protection, resource utilization
+    and conservation, and public infrastructure.
+  jurisdiction_source: https://www.epw.senate.gov/public/index.cfm/committee-jurisdiction
+  youtube_id: UCqMG6uXhoBo_nHcJN9XrLKw
+- type: senate
+  name: Senate Committee on Finance
+  url: http://www.finance.senate.gov/
+  thomas_id: SSFI
+  senate_committee_id: SSFI
+  subcommittees:
+  - name: Energy, Natural Resources, and Infrastructure
+    thomas_id: '12'
+    wikipedia: United States Senate Finance Subcommittee on Energy, Natural Resources,
+      and Infrastructure
+  - name: Health Care
+    thomas_id: '10'
+    wikipedia: United States Senate Finance Subcommittee on Health Care
+  - name: Taxation and IRS Oversight
+    thomas_id: '11'
+    wikipedia: United States Senate Finance Subcommittee on Taxation and IRS Oversight
+  - name: Social Security, Pensions, and Family Policy
+    thomas_id: '02'
+    wikipedia: United States Senate Finance Subcommittee on Social Security, Pensions,
+      and Family Policy
+  rss_url: http://www.finance.senate.gov/rss/feed/chair/
+  minority_rss_url: http://www.finance.senate.gov/rss/feed/ranking/
+  wikipedia: United States Senate Committee on Finance
+  jurisdiction: The Senate Committee on Finance has legislative jurisdiction on matters
+    relating to taxation, debt, customs, foreign trade, and health programs under
+    the Social Security Act such as Medicare, Medicaid, the Children's Health Insurance
+    Program (CHIP), Temporary Assistance to Needy Families (TANF) and other health
+    and human services programs financed by a specific tax or trust fund.
+  jurisdiction_source: https://www.ethics.senate.gov/public/index.cfm/jurisdiction
+  youtube_id: UCqy51oGHjollKBBWV4_iRgQ
+- type: senate
+  name: Senate Committee on Homeland Security and Governmental Affairs
+  url: http://www.hsgac.senate.gov/
+  thomas_id: SSGA
+  senate_committee_id: SSGA
+  subcommittees:
+  - thomas_id: '01'
+    name: Permanent Subcommittee on Investigations
+    wikipedia: United States Senate Homeland Security Permanent Subcommittee on Investigations
+  - thomas_id: '22'
+    name: Border Management, Federal Workforce, and Regulatory Affairs
+  wikipedia: United States Senate Committee on Homeland Security and Governmental
+    Affairs
+  jurisdiction: "The Senate Committee on Homeland Security and Governmental Affairs\
+    \ is the Senate\u2019s primary oversight committee with broad jurisdiction over\
+    \ government operations generally and the Department of Homeland Security in particular.\
+    \ Its primary responsibilities are to study the efficiency, economy, and effectiveness\
+    \ of all agencies and departments of the federal government; evaluate the effects\
+    \ of laws enacted to reorganize the legislative and executive branches of government;\
+    \ and study the intergovernmental relationships between the U.S. and states and\
+    \ municipalities, and between the U.S. and international organizations of which\
+    \ the U.S. is a member."
+  jurisdiction_source: https://www.hsgac.senate.gov/about/jurisdiction
+  youtube_id: UCKJISmkvK8tn0kFiCaIzUwQ
+- type: senate
+  name: Senate Committee on Health, Education, Labor, and Pensions
+  url: http://www.help.senate.gov/
+  thomas_id: SSHR
+  senate_committee_id: SSHR
+  subcommittees:
+  - name: Employment and Workplace Safety
+    thomas_id: '11'
+    wikipedia: United States Senate Health Subcommittee on Employment and Workplace
+      Safety
+  - name: Primary Health and Retirement Security
+    thomas_id: '12'
+    wikipedia: United States Senate Health Subcommittee on Primary Health and Aging
+  - name: Education and the American Family
+    thomas_id: 09
+    wikipedia: United States Senate Health Subcommittee on Children and Families
+  wikipedia: United States Senate Committee on Health, Education, Labor, and Pensions
+  jurisdiction: The Senate Committee on Health, Education, Labor, and Pensions has
+    jurisdiction over most of the agencies, institutes, and programs of the Department
+    of Health and Human Services, including the Food and Drug Administration, the
+    Centers for Disease Control and Prevention, the National Institutes of Health,
+    the Administration on Aging, the Substance Abuse and Mental Health Services Administration,
+    and the Agency for Healthcare Research and Quality.
+  jurisdiction_source: https://www.help.senate.gov/about/issues/
+- type: senate
+  name: Senate Committee on the Judiciary
+  url: http://www.judiciary.senate.gov/
+  thomas_id: SSJU
+  senate_committee_id: SSJU
+  subcommittees:
+  - name: the Constitution
+    thomas_id: '21'
+    wikipedia: United States Senate Judiciary Subcommittee on the Constitution, Civil
+      Rights and Human Rights
+  - name: Antitrust, Competition Policy, and Consumer Rights
+    thomas_id: '01'
+    wikipedia: United States Senate Judiciary Subcommittee on Antitrust, Competition
+      Policy and Consumer Rights
+  - thomas_id: '25'
+    name: Federal Courts, Oversight, Agency Action, and Federal Rights
+  - thomas_id: '26'
+    name: Intellectual Property
+  wikipedia: United States Senate Committee on the Judiciary
+  jurisdiction: The Senate Committee on the Judiciary provides oversight of the Department
+    of Justice and the agencies under the Department's jurisdiction, including the
+    Federal Bureau of Investigation, and the Department of Homeland Security. It also
+    plays an important role in the consideration of nominations and pending legislation.
+    Any legislation related to civil liberty, constitutional amendments, immigration
+    and naturalization, and a variety of other topics is referred to the Committee.
+  jurisdiction_source: https://www.judiciary.senate.gov/about/jurisdiction
+- type: senate
+  name: Senate Committee on Rules and Administration
+  url: http://www.rules.senate.gov/
+  thomas_id: SSRA
+  senate_committee_id: SSRA
+  rss_url: http://www.rules.senate.gov/public/?a=RSS.Feed
+  wikipedia: United States Senate Committee on Rules and Administration
+  jurisdiction: The Senate Committee on Rules and Administration has legislative jurisdiction
+    over the organization and operation of Congress. This includes matters such as
+    congressional rules and procedures, corruption, the relationship of Congress with
+    the other branches of government, and general administration of the Senate. The
+    Committee is also responsible for recommending improvements in organization and
+    operation with a view toward strengthening Congress, simplifying its operations,
+    improving its relationships with other branches of the United States Government,
+    and enabling it better to meet its responsibilities under the Constitution of
+    the United States.
+  jurisdiction_source: https://www.rules.senate.gov/public/index.cfm?p=PurposeJurisdiction
+  subcommittees: []
+- type: senate
+  name: Senate Committee on Small Business and Entrepreneurship
+  url: http://www.sbc.senate.gov/
+  thomas_id: SSSB
+  senate_committee_id: SSSB
+  wikipedia: United States Senate Committee on Small Business and Entrepreneurship
+  jurisdiction: The Senate Committee on Small Business and Entrepreneurship has legislative
+    jurisdiction over the Small Business Administration (SBA). The SBA is an independent
+    federal agency meant to assist and protect the interests of small businesses.
+    The Committee is also responsible for studying and problems of American small
+    business enterprises, and reporting back to the Senate.
+  jurisdiction_source: https://www.sbc.senate.gov/public/index.cfm/jurisdiction
+  subcommittees: []
+- type: senate
+  name: Senate Committee on Veterans' Affairs
+  url: http://www.veterans.senate.gov/
+  thomas_id: SSVA
+  senate_committee_id: SSVA
+  rss_url: http://www.veterans.senate.gov/rss.cfm
+  minority_rss_url: http://www.veterans.senate.gov/rankingmember/rss.cfm
+  wikipedia: United States Senate Committee on Veterans' Affairs
+  jurisdiction: The Senate Committee on Veterans' Affairs has legislative jurisdiction
+    over matters relating to veterans compensation and veterans generally, as well
+    as matters relating to the vocational rehabilitation, education, medical care,
+    civil relief, and civilian readjustment of veterans.
+  jurisdiction_source: https://www.veterans.senate.gov/about
+  youtube_id: UCKJISmkvK8tn0kFiCaIzUwQ
+  subcommittees: []
