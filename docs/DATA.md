@@ -140,6 +140,90 @@ For every bill that had a roll call vote. Example: `bills/119/hr1228.json`.
 
 `type` is one of `hr`, `s`, `hres`, `sres`, `hjres`, `sjres`, `hconres`, `sconres`.
 
+## State legislatures
+
+### `state-legislatures.json`
+One row per legislature (50 states, DC, PR): `state`, `name`, `legislators`,
+`sessions`, and `coverage` (see below).
+
+### `states/{CODE}/legislature.json`
+| Field | Meaning |
+|---|---|
+| `sessions` | current session(s): `identifier`, `name`, `start_date`, `end_date` |
+| `chambers` | `upper`, `lower`, or `legislature` (Nebraska, DC). Each has `name`, `seats`, `members`, and `districts`: `[{district, members: [card]}]`. Some districts elect more than one member. |
+| `coverage` | `roll_calls` we have, `with_names` (how many list each member's vote), `from` / `to` dates, `last_checked` |
+
+A state legislator **card**:
+```json
+{"id": "11111111-aaaa-...", "name": "Carol Test", "party": "Republican", "party_code": "R",
+ "title": "State Representative", "chamber": "lower", "state": "OH", "district": "40",
+ "image": "https://..."}
+```
+`title` follows each state's own usage (State Senator, State Representative,
+Assembly Member, Delegate, Councilmember).
+
+### `legislators/{id}.json`
+The card plus `email`, `offices` (`capitol` / `district` with address and
+phone), `links`, `social`, `birth_date`, `biography`, `stats`,
+`recent_votes` (last 20), and `sources`.
+
+`stats` matches Congress (`roll_calls`, `missed`, `missed_pct`, `excused`,
+`present`, `with_party`, `with_party_pct`) plus `covers_from` / `covers_to`.
+**Always show the dates** — state records start when this backend began
+collecting, not at the start of the member's career. Excused absences are
+counted apart from missed votes.
+
+### `legislators/{id}/votes.json`
+Every roll call we have for this legislator, newest first (same row format as
+Congress member histories).
+
+### `state-votes/{CODE}/latest.json`, `state-votes/{CODE}/{session}.json`
+Vote lists for a state.
+
+### `state-votes/{CODE}/{session}/{uuid}.json`
+One roll call: `question`, `motion_types` (e.g. `passage`), `result`,
+`chamber`, `date`, `bill` (`label`, `title`), `positions` (each member:
+`person`, `name`, `party`, `vote`, `raw`), `totals`, `official_counts`,
+`named_votes`, and `source` (`url` = the legislature's own page when known).
+
+### `state-bills/{CODE}/{session}/{id}.json`
+`label` (e.g. `HB 101`), `title`, `abstracts`, `sponsors`, `subjects`,
+`latest_action`, `versions` (every version with links), `full_text_url`,
+`sources`, `openstates_url`, and `roll_call_votes`.
+
+**Finding state legislators for an address:** the Census Geocoder also returns
+state legislative districts (upper and lower). Match them to `district` in
+`legislature.json`.
+
+## Following and alerts
+
+Follows live only on the phone. To get alerts, the app subscribes to
+Firebase Cloud Messaging topics (formats are also in `meta.json` → `alerts`):
+
+| Topic | Gets |
+|---|---|
+| `m-{bioguide}` | every new roll call by that member of Congress |
+| `m-{bioguide}-major` | final votes only: passage, adoption, concurrence, conference reports, veto overrides, nominations, treaties, impeachment |
+| `s-{id}` | every new roll call by that state legislator |
+| `s-{id}-major` | passage and veto-override votes only |
+
+After each run the backend sends one message per official with new votes
+from the last 3 days (older votes found while catching up never alert).
+
+```json
+{"notification": {"title": "Rep. Jim Jordan voted Yes",
+                  "body": "H.R. 1228: On Motion to Suspend the Rules and Pass — Passed"},
+ "data": {"type": "votes", "level": "federal", "member": "J000289",
+          "path": "members/J000289.json", "votes": "house-119-1-100"}}
+```
+
+`data.path` is the profile file to open when the alert is tapped.
+
+Suggested settings per followed official:
+- **All votes** → subscribe to the plain topic only.
+- **Major votes only** → subscribe to the `-major` topic only.
+- **Off** → no topic (still followed in the app).
+
 ## Caching
 
 | Files | Cache |

@@ -56,27 +56,28 @@ def latest(votes: list[dict], limit: int = 100) -> list[dict]:
     return rows[:limit]
 
 
-def member_histories(votes: list[dict]) -> dict[str, list[dict]]:
-    """{bioguide: [rows newest first]} — each row is one roll call and the member's position."""
+def member_histories(votes: list[dict], id_key: str = "bioguide", key_fn=None) -> dict[str, list[dict]]:
+    """{member_id: [rows newest first]} — each row is one roll call and the member's position."""
+    key_fn = key_fn or vote_key
     out: dict[str, list[dict]] = defaultdict(list)
     for v in votes:
         base = {
             "id": v["id"],
             "chamber": v["chamber"],
             "date": v["date"],
-            "datetime": v["datetime"],
+            "datetime": v.get("datetime"),
             "question": v["question"],
-            "description": v["description"],
+            "description": v.get("description"),
             "result": v["result"],
             "bill": v["bill"]["label"] if v.get("bill") else None,
             "bill_id": v["bill"]["id"] if v.get("bill") else None,
-            "path": vote_key(v)[len("v1/"):],
+            "path": key_fn(v)[len("v1/"):],
         }
         for p in v["positions"]:
-            if p.get("bioguide"):
-                out[p["bioguide"]].append({**base, "position": p["vote"], "position_raw": p.get("raw")})
+            if p.get(id_key):
+                out[p[id_key]].append({**base, "position": p["vote"], "position_raw": p.get("raw")})
     for rows in out.values():
-        rows.sort(key=lambda r: (r["datetime"] or "", r["id"]), reverse=True)
+        rows.sort(key=lambda r: (r["datetime"] or r["date"] or "", r["id"]), reverse=True)
     return dict(out)
 
 

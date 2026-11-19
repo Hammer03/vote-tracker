@@ -39,6 +39,18 @@ class Config:
         )
     )
 
+    # Open States (state legislatures). Free key: openstates.org/accounts/signup
+    openstates_api_key: str | None = field(default_factory=lambda: _env("OPENSTATES_API_KEY"))
+    # Requests per day your key allows. Free keys: 250. Ask Plural Policy for
+    # a higher tier (bronze 1,000 / silver 50,000) and raise this to match.
+    openstates_daily_budget: int = field(default_factory=lambda: int(_env("OPENSTATES_DAILY_BUDGET", "240")))
+    openstates_per_minute: int = field(default_factory=lambda: int(_env("OPENSTATES_PER_MINUTE", "10")))
+    # How far back to start when a state is seen for the first time.
+    openstates_backfill_days: int = field(default_factory=lambda: int(_env("OPENSTATES_BACKFILL_DAYS", "14")))
+
+    # Firebase Cloud Messaging service account (the whole JSON file as text).
+    firebase_service_account: str | None = field(default_factory=lambda: _env("FIREBASE_SERVICE_ACCOUNT"))
+
     # Re-download bill details older than this many days.
     bill_refresh_days: int = field(default_factory=lambda: int(_env("VT_BILL_REFRESH_DAYS", "7")))
 

@@ -12,7 +12,7 @@ def test_house_vote_parse():
     assert v["required"] == "2/3"
     assert v["result"] == "Passed"
     assert v["bill"]["id"] == "119-hr-1228"
-    assert v["totals"] == {"yea": 2, "nay": 2, "present": 0, "not_voting": 1, "other": 0}
+    assert v["totals"] == {"yea": 2, "nay": 2, "present": 0, "not_voting": 1, "excused": 0, "other": 0}
     assert v["official_party_totals"]["D"]["not_voting"] == 1
     jordan = next(p for p in v["positions"] if p["bioguide"] == "J000289")
     assert jordan == {"bioguide": "J000289", "name": "Jordan", "party": "R", "state": "OH", "vote": "yea", "raw": "Yea"}

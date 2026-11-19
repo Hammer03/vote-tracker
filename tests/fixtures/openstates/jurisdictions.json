@@ -1,0 +1,14 @@
+{"results": [
+ {"id": "ocd-jurisdiction/country:us/state:oh/government", "name": "Ohio", "classification": "state",
+  "division_id": "ocd-division/country:us/state:oh", "url": "https://ohio.gov",
+  "latest_bill_update": "2026-11-17T20:00:00", "latest_people_update": "2026-11-17T20:00:00",
+  "organizations": [
+    {"id": "ocd-organization/1", "name": "Ohio General Assembly", "classification": "legislature", "districts": []},
+    {"id": "ocd-organization/2", "name": "Senate", "classification": "upper", "districts": [{"label": "1", "role": "Senator", "division_id": "x", "maximum_memberships": 1}, {"label": "2", "role": "Senator", "division_id": "x", "maximum_memberships": 1}]},
+    {"id": "ocd-organization/3", "name": "House", "classification": "lower", "districts": [{"label": "1", "role": "Representative", "division_id": "x", "maximum_memberships": 1}, {"label": "2", "role": "Representative", "division_id": "x", "maximum_memberships": 1}, {"label": "3", "role": "Representative", "division_id": "x", "maximum_memberships": 1}]}
+  ],
+  "legislative_sessions": [
+    {"identifier": "135", "name": "135th General Assembly", "classification": "primary", "start_date": "2023-01-02", "end_date": "2024-12-31"},
+    {"identifier": "136", "name": "136th General Assembly", "classification": "primary", "start_date": "2025-01-06", "end_date": "2026-12-31"}
+  ]}
+], "pagination": {"per_page": 52, "page": 1, "max_page": 1, "total_items": 1}}

@@ -13,7 +13,9 @@ Every item links back to its official source so anyone can check it.
 > Vote Tracker is independent. It is not affiliated with, endorsed by, or
 > acting for any government entity.
 
-## What's built (Phase 1: Congress)
+## What's built
+
+### Phase 1: Congress
 
 | Data | Official source |
 |---|---|
@@ -24,9 +26,27 @@ Every item links back to its official source so anyone can check it.
 | Missed-vote % and votes-with-party % | Computed from the roll call records above |
 | States, DC, territories | Data file — DC and Puerto Rico become states automatically once their senators appear in the official data |
 
-Coming next: state legislatures (all 50 + DC + PR), campaign money (FEC),
-lobbying (LDA.gov), floor speeches, office spending, live election results,
-and city councils. See the project plan.
+### Phase 2: State legislatures (all 50 states, DC, Puerto Rico)
+
+| Data | Source |
+|---|---|
+| Every current state legislator, with offices, phones, email, social | Open States nightly legislator files (public domain, no key) |
+| State roll call votes, bills, summaries, full-text links | Open States API v3, collected from each legislature's official website |
+| Missed votes, excused absences, votes-with-party | Computed from those roll calls, with the dates they cover |
+
+Some legislatures publish only vote totals, not each member's vote. Those
+votes are kept and marked `named_votes: false`.
+
+### Following officials and alerts
+
+Users follow any official in the app. Follows stay on the phone. The app
+subscribes to a free Firebase Cloud Messaging topic for each one, and after
+every run this backend sends one plain-fact alert per official with new
+votes ("Rep. Jane Doe voted No — H.R. 1: On Passage — Passed"). Users can
+pick every vote or major votes only. There is no user database.
+
+Coming next: campaign money (FEC), lobbying (LDA.gov), floor speeches,
+office spending, live election results, and city councils. See the project plan.
 
 ## How it works
 
@@ -77,13 +97,34 @@ In this repo: **Settings → Secrets and variables → Actions → New repositor
 | `R2_SECRET_ACCESS_KEY` | R2 token secret |
 | `R2_BUCKET` | `vote-tracker-data` |
 
-### 4. Run it the first time
+### 4. Optional: state votes (Open States key)
+
+Sign up free at <https://open.pluralpolicy.com/accounts/signup/>, confirm your
+email, and copy the key from your profile page. Add it as the secret
+`OPENSTATES_API_KEY`. Without it, state legislators still publish, but not
+state votes.
+
+Free keys allow 250 requests a day. The backend splits that across the day
+and across states. For fresher state votes, ask Plural Policy for a higher
+tier, then add repository **variables** to match:
+`OPENSTATES_DAILY_BUDGET` (e.g. `1000`) and `OPENSTATES_PER_MINUTE` (e.g. `40`).
+
+### 5. Optional: alerts (Firebase)
+
+1. <https://console.firebase.google.com> → **Add project** (free plan).
+2. Project settings → **Service accounts** → **Generate new private key**.
+   A JSON file downloads.
+3. Add a secret `FIREBASE_SERVICE_ACCOUNT` and paste the whole file's text.
+
+Without it, alerts are planned and logged but not sent.
+
+### 6. Run it the first time
 
 **Actions → Update data → Run workflow.** The first run downloads every vote
 in the current Congress and can take 30–60 minutes. After that it runs by
 itself every hour and usually takes about a minute.
 
-### 5. Make the files public (before launch)
+### 7. Make the files public (before launch)
 
 The apps need a public web address for the bucket. In R2 → your bucket →
 **Settings → Custom Domains**, connect a domain you own on Cloudflare
@@ -116,6 +157,9 @@ Files land in `build/v1/`. Useful flags:
 | `--max-new 5` | only grab a few new votes (quick test) |
 | `--full-refresh` | re-download every vote this Congress |
 | `--dry-run` | do everything except write files |
+| `--states OH,PA` | only these state legislatures |
+| `--no-states` | skip state legislatures |
+| `--no-alerts` | don't send alerts |
 
 ## Costs
 
@@ -124,6 +168,8 @@ Files land in `build/v1/`. Useful flags:
 | GitHub Actions (public repo) | free |
 | Cloudflare R2: 10 GB storage, 10M reads/month | free |
 | api.data.gov key | free |
+| Open States key | free (250 requests/day; higher tiers on request) |
+| Firebase Cloud Messaging | free |
 | Custom domain for the cache | about the price of a domain per year |
 
 ## License

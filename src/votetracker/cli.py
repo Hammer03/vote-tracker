@@ -42,6 +42,9 @@ def main(argv: list[str] | None = None) -> int:
     run.add_argument("--max-new", type=int, help="limit new votes per session (for testing)")
     run.add_argument("--full-refresh", action="store_true", help="re-download every vote this Congress")
     run.add_argument("--dry-run", action="store_true", help="do everything except write files")
+    run.add_argument("--no-states", action="store_true", help="skip state legislatures")
+    run.add_argument("--states", help="only these states, e.g. OH,PA")
+    run.add_argument("--no-alerts", action="store_true", help="don't send follow alerts")
     run.add_argument("-v", "--verbose", action="store_true")
 
     args = parser.parse_args(argv)
@@ -61,6 +64,9 @@ def main(argv: list[str] | None = None) -> int:
             max_new=args.max_new,
             full_refresh=args.full_refresh,
             dry_run=args.dry_run,
+            states=not args.no_states,
+            only_states={c.strip().upper() for c in args.states.split(",")} if args.states else None,
+            send_alerts=not args.no_alerts,
         )
         print(json.dumps(report, indent=2))
     return 0

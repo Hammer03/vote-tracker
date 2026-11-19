@@ -14,9 +14,13 @@ from votetracker import jurisdictions as jurisdictions_mod
 from votetracker.builders import members as members_b
 from votetracker.builders import stats as stats_b
 from votetracker.builders import votes as votes_b
+from votetracker import notify
 from votetracker.publish import Publisher
+from votetracker.states import StatesRunner
 from votetracker.sources import congress_gov, house_votes, legislators, senate_votes
 from votetracker.util import congress_for_year, iso, make_bill_ref, utc_now, years_for_congress
+
+TITLE_ABBR = {"Senator": "Sen.", "Representative": "Rep.", "Delegate": "Del.", "Resident Commissioner": "Res. Comm."}
 
 log = logging.getLogger(__name__)
 
@@ -52,6 +56,7 @@ class Pipeline:
         self.store = store
         self.http = http
         self.today = today or date.today()
+        self.added: list[dict] = []  # votes seen for the first time this run
 
     # ------------------------------------------------------------------ fetch
 
@@ -72,6 +77,8 @@ class Pipeline:
             # Re-check the last two votes in case the Clerk posted a correction.
             start = 1 if (full or not known) else max(1, max(known) - 1)
             for v in house_votes.fetch_new(self.http, year, start, max_new=max_new):
+                if v["id"] not in bundle:
+                    self.added.append(v)
                 if bundle.get(v["id"]) != v:
                     new_ids.append(v["id"])
                 bundle[v["id"]] = v
@@ -90,6 +97,8 @@ class Pipeline:
             for v in senate_votes.fetch_new(self.http, congress, session, known, legs.lis_to_bioguide,
                                             refetch=refetch, max_new=max_new):
                 self._map_former_senators([v], legs)
+                if v["id"] not in bundle:
+                    self.added.append(v)
                 if bundle.get(v["id"]) != v:
                     new_ids.append(v["id"])
                 bundle[v["id"]] = v
@@ -160,7 +169,9 @@ class Pipeline:
     # ------------------------------------------------------------------ run
 
     def run(self, fetch: bool = True, bills: bool = True, congress: int | None = None,
-            max_new: int | None = None, full_refresh: bool = False, dry_run: bool = False) -> dict:
+            max_new: int | None = None, full_refresh: bool = False, dry_run: bool = False,
+            states: bool = True, only_states: set[str] | None = None, send_alerts: bool = True,
+            now: datetime | None = None) -> dict:
         started = utc_now()
         congress = congress or congress_for_year(self.today.year)
         legs = legislators.fetch(self.http)
@@ -181,7 +192,19 @@ class Pipeline:
             self.store.get_json_gz(_bills_key(congress), {}) or {}
         )
 
-        report = self.build_and_publish(congress, legs, all_votes, bill_cache, dry_run=dry_run)
+        pub = Publisher(self.store, dry_run=dry_run)
+        self.build_and_publish(congress, legs, all_votes, bill_cache, pub)
+
+        states_report = {}
+        runner = None
+        if states:
+            now = now or utc_now()
+            runner = StatesRunner(self.cfg, self.store, self.http, now)
+            states_report = runner.run(pub, only=only_states, fetch=fetch, rebuild_all=full_refresh)
+        pub.save_manifest()
+
+        alerts = self._send_alerts(legs, runner, dry_run) if send_alerts else {}
+        report = {"uploaded": pub.uploaded, "unchanged": pub.skipped, "states": states_report, "alerts": alerts}
         report.update(
             {
                 "started_at": iso(started),
@@ -196,8 +219,7 @@ class Pipeline:
         log.info("run report: %s", report)
         return report
 
-    def build_and_publish(self, congress: int, legs, all_votes: list[dict], bill_cache: dict, dry_run=False) -> dict:
-        pub = Publisher(self.store, dry_run=dry_run)
+    def build_and_publish(self, congress: int, legs, all_votes: list[dict], bill_cache: dict, pub: Publisher) -> None:
         jur_list = jurisdictions_mod.resolve(legs.current)
         jmap = jurisdictions_mod.by_code(jur_list)
 
@@ -257,9 +279,42 @@ class Pipeline:
                     "bills": len(by_bill),
                 },
                 "capitol_switchboard": "(202) 224-3121",
+                "state_legislatures": "state-legislatures.json",
+                "alerts": {
+                    "federal_topic": "m-{bioguide}",
+                    "federal_major_topic": "m-{bioguide}-major",
+                    "state_topic": "s-{id}",
+                    "state_major_topic": "s-{id}-major",
+                },
                 "disclaimer": DISCLAIMER,
                 "sources": SOURCES,
             },
         )
-        pub.save_manifest()
-        return {"uploaded": pub.uploaded, "unchanged": pub.skipped}
+
+    def _send_alerts(self, legs, runner, dry_run: bool) -> dict:
+        def federal_name(bid):
+            m = legs.by_bioguide.get(bid)
+            if not m:
+                return None
+            card = members_b.summary(m, {})
+            return f"{TITLE_ABBR.get(card['title'], '')} {card['name']}".strip()
+
+        messages = notify.plan(self.added, "federal", "bioguide", federal_name,
+                               lambda bid: f"members/{bid}.json", self.today)
+        if runner and runner.added:
+            people = runner.names()
+            messages += notify.plan(runner.added, "state", "person",
+                                    lambda pid: (people.get(pid) or {}).get("name"),
+                                    lambda pid: f"legislators/{pid}.json", self.today)
+        if dry_run:
+            return {"planned": len(messages), "sent": 0, "dry_run": True}
+        if self.cfg.firebase_service_account:
+            sender = notify.FcmSender(self.cfg.firebase_service_account)
+        else:
+            sender = notify.RecordingSender()
+            if messages:
+                log.info("FIREBASE_SERVICE_ACCOUNT not set: %d alerts recorded, not sent", len(messages))
+        result = notify.deliver(messages, sender)
+        result["firebase"] = bool(self.cfg.firebase_service_account)
+        self.store.put_json("state/alerts/last_run.json", {**result, "sample": messages[:20]}, "no-store")
+        return result

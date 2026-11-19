@@ -1,0 +1,43 @@
+{"results": [
+ {"id": "ocd-bill/22222222-bbbb-4ccc-8ddd-000000000001", "session": "136",
+  "jurisdiction": {"id": "ocd-jurisdiction/country:us/state:oh/government", "name": "Ohio", "classification": "state"},
+  "from_organization": {"id": "ocd-organization/3", "name": "House", "classification": "lower"},
+  "identifier": "HB 101", "title": "Regards example roadway naming", "classification": ["bill"], "subject": ["Transportation"],
+  "extras": {}, "created_at": "2025-02-01T00:00:00+00:00", "updated_at": "2026-11-17T18:00:00.123456+00:00",
+  "openstates_url": "https://open.pluralpolicy.com/oh/bills/136/HB101/",
+  "first_action_date": "2025-02-01", "latest_action_date": "2026-11-17", "latest_action_description": "Passed 3rd consideration",
+  "latest_passage_date": "2026-11-17",
+  "abstracts": [{"abstract": "To name a portion of State Route 4.", "note": "summary"}],
+  "sponsorships": [{"id": "f0049138-1ad8-4506-a2a4-f4dd1251bbba", "name": "Test", "entity_type": "person", "primary": true, "classification": "primary",
+                    "person": {"id": "ocd-person/11111111-aaaa-4bbb-8ccc-000000000003", "name": "Carol Test", "party": "Republican"}}],
+  "versions": [{"id": "a0049138-1ad8-4506-a2a4-f4dd1251bbba", "note": "As Introduced", "date": "2025-02-01", "classification": "", "links": [{"url": "https://search-prod.lis.state.oh.us/api/v2/general_assembly_136/legislation/hb101/00_IN/pdf/", "media_type": "application/pdf"}]},
+               {"id": "b0049138-1ad8-4506-a2a4-f4dd1251bbba", "note": "As Passed by the House", "date": "2026-11-17", "classification": "", "links": [{"url": "https://search-prod.lis.state.oh.us/api/v2/general_assembly_136/legislation/hb101/01_PH/pdf/", "media_type": "application/pdf"}]}],
+  "sources": [{"url": "https://www.legislature.ohio.gov/legislation/136/hb101", "note": ""}],
+  "votes": [
+   {"id": "ocd-vote/33333333-cccc-4ddd-8eee-000000000001", "motion_text": "Third Consideration", "motion_classification": ["passage"],
+    "start_date": "2026-11-17", "result": "pass", "identifier": "", "extras": {},
+    "organization": {"id": "ocd-organization/3", "name": "House", "classification": "lower"},
+    "votes": [
+      {"id": "c0049138-1ad8-4506-a2a4-f4dd1251bbba", "option": "yes", "voter_name": "Test", "voter": {"id": "ocd-person/11111111-aaaa-4bbb-8ccc-000000000003", "name": "Carol Test", "party": "Republican"}},
+      {"id": "d0049138-1ad8-4506-a2a4-f4dd1251bbba", "option": "no", "voter_name": "Demo", "voter": {"id": "ocd-person/11111111-aaaa-4bbb-8ccc-000000000004", "name": "Dan Demo", "party": "Democratic"}},
+      {"id": "e0049138-1ad8-4506-a2a4-f4dd1251bbba", "option": "excused", "voter_name": "Third", "voter": {"id": "ocd-person/11111111-aaaa-4bbb-8ccc-000000000005", "name": "Erin Third", "party": "Republican"}}
+    ],
+    "counts": [{"option": "yes", "value": 1}, {"option": "no", "value": 1}, {"option": "excused", "value": 1}],
+    "sources": [{"url": "https://www.legislature.ohio.gov/legislation/136/hb101/votes", "note": ""}]}
+  ]},
+ {"id": "ocd-bill/22222222-bbbb-4ccc-8ddd-000000000002", "session": "136",
+  "jurisdiction": {"id": "ocd-jurisdiction/country:us/state:oh/government", "name": "Ohio", "classification": "state"},
+  "from_organization": {"id": "ocd-organization/2", "name": "Senate", "classification": "upper"},
+  "identifier": "SB 7", "title": "Regards example school calendars", "classification": ["bill"], "subject": [],
+  "extras": {}, "created_at": "2025-01-20T00:00:00+00:00", "updated_at": "2026-11-17T19:30:00+00:00",
+  "openstates_url": "https://open.pluralpolicy.com/oh/bills/136/SB7/",
+  "first_action_date": "2025-01-20", "latest_action_date": "2026-11-16", "latest_action_description": "Passed",
+  "abstracts": [], "sponsorships": [], "versions": [], "sources": [],
+  "votes": [
+   {"id": "ocd-vote/33333333-cccc-4ddd-8eee-000000000002", "motion_text": "Motion to adopt amendment", "motion_classification": ["amendment-passage"],
+    "start_date": "2026-11-16", "result": "fail", "identifier": "", "extras": {},
+    "organization": {"id": "ocd-organization/2", "name": "Senate", "classification": "upper"},
+    "votes": [], "counts": [{"option": "yes", "value": 12}, {"option": "no", "value": 20}, {"option": "absent", "value": 1}],
+    "sources": []}
+  ]}
+], "pagination": {"per_page": 20, "page": 1, "max_page": 1, "total_items": 2}}

@@ -43,7 +43,12 @@ jobs:
           R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
           R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
           R2_BUCKET: ${{ secrets.R2_BUCKET }}
+          OPENSTATES_API_KEY: ${{ secrets.OPENSTATES_API_KEY }}
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
           PUBLIC_BASE_URL: ${{ vars.PUBLIC_BASE_URL }}
+          OPENSTATES_DAILY_BUDGET: ${{ vars.OPENSTATES_DAILY_BUDGET }}
+          OPENSTATES_PER_MINUTE: ${{ vars.OPENSTATES_PER_MINUTE }}
+          OPENSTATES_BACKFILL_DAYS: ${{ vars.OPENSTATES_BACKFILL_DAYS }}
           FULL_REFRESH: ${{ inputs.full_refresh }}
         run: |
           if [ -z "$R2_BUCKET" ] || [ -z "$R2_ACCOUNT_ID" ]; then

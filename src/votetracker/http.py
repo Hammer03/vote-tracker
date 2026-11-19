@@ -24,6 +24,9 @@ DEFAULT_HOST_INTERVALS = {
     "clerk.house.gov": 0.25,
     "www.senate.gov": 0.25,
     "raw.githubusercontent.com": 0.1,
+    "v3.openstates.org": 6.5,  # free keys: 10 requests/minute
+    "data.openstates.org": 0.2,
+    "fcm.googleapis.com": 0.0,
 }
 
 
@@ -96,17 +99,24 @@ class HttpClient:
 
 
 class FakeHttpClient:
-    """Test double: maps URL (without query string) to (status, body)."""
+    """Test double: maps URL (without query string) to (status, body).
 
-    def __init__(self, routes: dict[str, tuple[int, bytes | str]]):
+    A route may also be a function ``(params) -> (status, body)`` for
+    endpoints whose answer depends on query parameters.
+    """
+
+    def __init__(self, routes: dict):
         self.routes = routes
         self.calls: list[str] = []
+        self.call_params: list = []
         self.request_count = 0
 
-    def get(self, url: str, params: dict | None = None, headers: dict | None = None) -> Response:
+    def get(self, url: str, params=None, headers: dict | None = None) -> Response:
         self.calls.append(url)
+        self.call_params.append(params)
         self.request_count += 1
-        status, body = self.routes.get(url, (404, b"not found"))
+        route = self.routes.get(url, (404, b"not found"))
+        status, body = route(params) if callable(route) else route
         if isinstance(body, str):
             body = body.encode("utf-8")
         return Response(url=url, status=status, content=body, headers={})

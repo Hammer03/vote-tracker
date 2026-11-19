@@ -4,8 +4,8 @@ from __future__ import annotations
 
 from xml.etree.ElementTree import Element
 
-# How a member's recorded position is normalized. The raw text is always
-# kept alongside, so nothing from the official record is lost.
+# How a recorded position is normalized. The raw text is always kept
+# alongside, so nothing from the official record is lost.
 POSITION_MAP = {
     "yea": "yea",
     "aye": "yea",
@@ -15,16 +15,22 @@ POSITION_MAP = {
     "no": "nay",
     "not guilty": "nay",
     "present": "present",
+    "abstain": "present",
     "not voting": "not_voting",
+    "absent": "not_voting",
+    "excused": "excused",
 }
 
-POSITIONS = ("yea", "nay", "present", "not_voting", "other")
+# 'excused' is kept apart from 'not_voting': many state legislatures record
+# an excused absence differently, and we report what the record says.
+POSITIONS = ("yea", "nay", "present", "not_voting", "excused", "other")
 
 
 def normalize_position(raw: str | None) -> str:
-    """Map an official vote string to yea / nay / present / not_voting / other.
+    """Map an official vote string to yea / nay / present / not_voting / excused / other.
 
-    'other' covers votes for a person, such as electing the Speaker.
+    'other' covers votes for a person (such as electing the Speaker) and
+    anything a legislature records that does not fit the categories above.
     """
     if raw is None:
         return "other"
