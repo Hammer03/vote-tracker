@@ -37,6 +37,18 @@ Every item links back to its official source so anyone can check it.
 Some legislatures publish only vote totals, not each member's vote. Those
 votes are kept and marked `named_votes: false`.
 
+### Phase 3a: Campaign money (Congress)
+
+| Data | Source |
+|---|---|
+| Cash on hand going into this term and now; money raised and spent; money from individuals, PACs, parties, and the candidate | FEC candidate summary files |
+| Every PAC, party, or campaign committee that gave directly, by name | FEC committee-to-candidate files |
+| Outside spending for or against each member, by the committee that spent it | FEC committee-to-candidate files |
+| Look up any committee and see everyone it gave to | built from the above |
+
+Built once a day from FEC bulk files, so it needs no API key and no rate
+limits. Individual donors are shown only as totals, never by name.
+
 ### Following officials and alerts
 
 Users follow any official in the app. Follows stay on the phone. The app
@@ -45,8 +57,8 @@ every run this backend sends one plain-fact alert per official with new
 votes ("Rep. Jane Doe voted No — H.R. 1: On Passage — Passed"). Users can
 pick every vote or major votes only. There is no user database.
 
-Coming next: campaign money (FEC), lobbying (LDA.gov), floor speeches,
-office spending, live election results, and city councils. See the project plan.
+Coming next: lobbying (LDA.gov), floor speeches, office spending, live
+election results, and city councils. See the project plan.
 
 ## How it works
 
@@ -160,6 +172,8 @@ Files land in `build/v1/`. Useful flags:
 | `--states OH,PA` | only these state legislatures |
 | `--no-states` | skip state legislatures |
 | `--no-alerts` | don't send alerts |
+| `--no-money` | skip campaign money |
+| `--money-force` | rebuild campaign money even if already done today |
 
 ## Costs
 

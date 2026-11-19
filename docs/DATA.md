@@ -140,6 +140,41 @@ For every bill that had a roll call vote. Example: `bills/119/hr1228.json`.
 
 `type` is one of `hr`, `s`, `hres`, `sres`, `hjres`, `sjres`, `hconres`, `sconres`.
 
+## Campaign money (Congress)
+
+Built once a day from the FEC's bulk data files. Individual donors are never
+named — only totals. (FEC rules forbid using individual contributor
+information for commercial purposes or to solicit donations.)
+
+### `money/{bioguide}.json`
+
+| Field | Meaning |
+|---|---|
+| `fec_candidate_id`, `fec_url` | the campaign on fec.gov |
+| `periods` | `election_before_term` (e.g. `2024`) and `this_term` (e.g. `[2026]`) two-year cycles |
+| `cash.start_of_term` | cash on hand at the end of the election that won this term: `{amount, as_of}` |
+| `cash.latest` | latest reported cash on hand: `{amount, as_of}` |
+| `cash.change` | latest minus start of term |
+| `this_term` | totals during this term: `receipts`, `disbursements`, `from_individuals`, `from_pacs_and_other_committees`, `from_parties`, `from_candidate`, `loans_from_candidate` |
+| `by_cycle` | the same figures for each cycle, plus `cash_start`, `cash_end`, `debts`, `coverage_end` |
+| `committee_contributions.this_term` / `.election_before_term` | every committee that gave directly: `committee_id`, `name`, `kind` (PAC, Super PAC, Hybrid PAC, Party committee, Candidate committee, ...), `connected_org`, `org_type` (Corporation, Labor organization, Trade association, ...), `party`, `direct`, `path` |
+| `outside_spending.this_term` / `.election_before_term` | money spent independently: `support` and `oppose` amounts by committee |
+| `notes` | plain-language notes to show with the numbers |
+
+Rows are sorted by amount, largest first. Show `as_of` dates with cash figures.
+
+### `money/committees/{committee_id}.json`
+One committee's money to every sitting member during each member's current
+term: `members` (member card + `direct`, `support`, `oppose`), and
+`totals_to_current_members`. Lets users look up any PAC and see everyone it
+gave to or spent for or against.
+
+### `money/committees/index.json`
+Every committee that appears above, with totals, for search.
+
+Member profiles (`members/{bioguide}.json`) also carry a short `money`
+summary: `cash_latest`, `cash_start_of_term`, `raised_this_term`, `path`.
+
 ## State legislatures
 
 ### `state-legislatures.json`

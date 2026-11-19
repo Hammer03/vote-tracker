@@ -27,6 +27,7 @@ DEFAULT_HOST_INTERVALS = {
     "v3.openstates.org": 6.5,  # free keys: 10 requests/minute
     "data.openstates.org": 0.2,
     "fcm.googleapis.com": 0.0,
+    "www.fec.gov": 1.0,
 }
 
 
@@ -52,7 +53,7 @@ class Response:
 
 
 class HttpClient:
-    def __init__(self, user_agent: str, timeout: float = 30.0, host_intervals: dict | None = None):
+    def __init__(self, user_agent: str, timeout: float = 120.0, host_intervals: dict | None = None):
         self.timeout = timeout
         self.host_intervals = dict(DEFAULT_HOST_INTERVALS)
         if host_intervals:

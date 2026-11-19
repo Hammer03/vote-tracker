@@ -16,6 +16,7 @@ from votetracker.builders import stats as stats_b
 from votetracker.builders import votes as votes_b
 from votetracker import notify
 from votetracker.publish import Publisher
+from votetracker.money import MoneyRunner
 from votetracker.states import StatesRunner
 from votetracker.sources import congress_gov, house_votes, legislators, senate_votes
 from votetracker.util import congress_for_year, iso, make_bill_ref, utc_now, years_for_congress
@@ -171,7 +172,7 @@ class Pipeline:
     def run(self, fetch: bool = True, bills: bool = True, congress: int | None = None,
             max_new: int | None = None, full_refresh: bool = False, dry_run: bool = False,
             states: bool = True, only_states: set[str] | None = None, send_alerts: bool = True,
-            now: datetime | None = None) -> dict:
+            now: datetime | None = None, money: bool = True, money_force: bool = False) -> dict:
         started = utc_now()
         congress = congress or congress_for_year(self.today.year)
         legs = legislators.fetch(self.http)
@@ -193,7 +194,12 @@ class Pipeline:
         )
 
         pub = Publisher(self.store, dry_run=dry_run)
-        self.build_and_publish(congress, legs, all_votes, bill_cache, pub)
+        money_summaries = {}
+        if money:
+            jmap = jurisdictions_mod.by_code(jurisdictions_mod.resolve(legs.current))
+            money_summaries = MoneyRunner(self.store, self.http, self.today).run(
+                pub, legs, lambda m: members_b.summary(m, jmap), fetch=fetch, force=money_force or full_refresh)
+        self.build_and_publish(congress, legs, all_votes, bill_cache, pub, money_summaries)
 
         states_report = {}
         runner = None
@@ -219,7 +225,9 @@ class Pipeline:
         log.info("run report: %s", report)
         return report
 
-    def build_and_publish(self, congress: int, legs, all_votes: list[dict], bill_cache: dict, pub: Publisher) -> None:
+    def build_and_publish(self, congress: int, legs, all_votes: list[dict], bill_cache: dict, pub: Publisher,
+                          money_summaries: dict | None = None) -> None:
+        money_summaries = money_summaries or {}
         jur_list = jurisdictions_mod.resolve(legs.current)
         jmap = jurisdictions_mod.by_code(jur_list)
 
@@ -249,10 +257,9 @@ class Pipeline:
             chamber = "senate" if m["terms"][-1]["type"] == "sen" else "house"
             history = [r for r in histories.get(bid, []) if r["chamber"] == chamber]
             stats = member_stats.get(bid, {}).get(chamber)
-            pub.publish_json(
-                f"v1/members/{bid}.json",
-                members_b.profile(m, legs, jmap, stats, history[:RECENT_VOTES_ON_PROFILE], congress, self.today),
-            )
+            doc = members_b.profile(m, legs, jmap, stats, history[:RECENT_VOTES_ON_PROFILE], congress, self.today)
+            doc["money"] = money_summaries.get(bid)
+            pub.publish_json(f"v1/members/{bid}.json", doc)
             pub.publish_json(f"v1/members/{bid}/votes-{congress}.json", {"bioguide": bid, "congress": congress, "votes": history})
             cards.append(members_b.summary(m, jmap))
         cards.sort(key=lambda c: (c["state"], c["chamber"] != "senate", c["district"] or 0, c["last_name"]))

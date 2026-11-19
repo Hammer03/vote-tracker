@@ -45,6 +45,8 @@ def main(argv: list[str] | None = None) -> int:
     run.add_argument("--no-states", action="store_true", help="skip state legislatures")
     run.add_argument("--states", help="only these states, e.g. OH,PA")
     run.add_argument("--no-alerts", action="store_true", help="don't send follow alerts")
+    run.add_argument("--no-money", action="store_true", help="skip campaign money (FEC)")
+    run.add_argument("--money-force", action="store_true", help="rebuild campaign money even if done today")
     run.add_argument("-v", "--verbose", action="store_true")
 
     args = parser.parse_args(argv)
@@ -67,6 +69,8 @@ def main(argv: list[str] | None = None) -> int:
             states=not args.no_states,
             only_states={c.strip().upper() for c in args.states.split(",")} if args.states else None,
             send_alerts=not args.no_alerts,
+            money=not args.no_money,
+            money_force=args.money_force,
         )
         print(json.dumps(report, indent=2))
     return 0
