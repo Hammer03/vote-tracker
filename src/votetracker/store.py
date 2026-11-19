@@ -12,6 +12,7 @@ from __future__ import annotations
 import gzip
 import json
 import logging
+import time
 from pathlib import Path
 
 log = logging.getLogger(__name__)
@@ -96,14 +97,28 @@ class R2Store(Store):
             aws_access_key_id=access_key_id,
             aws_secret_access_key=secret_access_key,
             region_name="auto",
-            config=BotoConfig(retries={"max_attempts": 5, "mode": "standard"}),
+            config=BotoConfig(retries={"max_attempts": 8, "mode": "adaptive"}, max_pool_connections=16),
         )
+
+    # R2 has short regional outages (HTTP 503). boto3 already retries a few
+    # times within seconds; this outer loop waits longer before giving up.
+    OUTER_WAITS = (5, 15, 45)
+
+    def _with_retry(self, fn):
+        for wait in (*self.OUTER_WAITS, None):
+            try:
+                return fn()
+            except Exception as exc:  # noqa: BLE001
+                if wait is None or not _transient(exc):
+                    raise
+                log.warning("R2 busy (%s); retrying in %ss", exc.__class__.__name__, wait)
+                time.sleep(wait)
 
     def get(self, key: str) -> bytes | None:
         from botocore.exceptions import ClientError
 
         try:
-            obj = self.client.get_object(Bucket=self.bucket, Key=key)
+            obj = self._with_retry(lambda: self.client.get_object(Bucket=self.bucket, Key=key))
         except ClientError as exc:
             if exc.response.get("Error", {}).get("Code") in ("NoSuchKey", "404"):
                 return None
@@ -114,4 +129,17 @@ class R2Store(Store):
         extra = {"ContentType": content_type}
         if cache_control:
             extra["CacheControl"] = cache_control
-        self.client.put_object(Bucket=self.bucket, Key=key, Body=data, **extra)
+        self._with_retry(lambda: self.client.put_object(Bucket=self.bucket, Key=key, Body=data, **extra))
+
+
+def _transient(exc: Exception) -> bool:
+    """Server-side or network errors worth waiting out (not 'no such key' or bad credentials)."""
+    resp = getattr(exc, "response", None) or {}
+    code = (resp.get("Error") or {}).get("Code", "")
+    status = (resp.get("ResponseMetadata") or {}).get("HTTPStatusCode", 0)
+    if code in ("NoSuchKey", "404", "AccessDenied", "InvalidAccessKeyId", "SignatureDoesNotMatch"):
+        return False
+    if status >= 500 or code in ("ServiceUnavailable", "InternalError", "SlowDown", "RequestTimeout"):
+        return True
+    return exc.__class__.__name__ in ("EndpointConnectionError", "ConnectionClosedError", "ReadTimeoutError",
+                                       "ConnectTimeoutError")

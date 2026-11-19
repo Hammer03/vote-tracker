@@ -73,4 +73,10 @@ def main(argv: list[str] | None = None) -> int:
             money_force=args.money_force,
         )
         print(json.dumps(report, indent=2))
+        failed = report.get("upload_failed", 0)
+        if failed:
+            # Shown as a yellow warning in GitHub Actions; those files retry next run.
+            print(f"::warning::{failed} file uploads failed and will be retried on the next run")
+            if not report.get("uploaded"):
+                return 1  # storage looks down: mark the run as failed
     return 0

@@ -54,3 +54,50 @@ def test_local_store_refuses_escape(tmp_path):
         pass
     else:
         raise AssertionError("expected ValueError")
+
+
+def test_publisher_keeps_going_when_some_uploads_fail(tmp_path):
+    class Flaky(LocalStore):
+        def put(self, key, data, content_type, cache_control=None):
+            if key.endswith("bad.json"):
+                raise RuntimeError("503 Service Unavailable")
+            super().put(key, data, content_type, cache_control)
+
+    store = Flaky(tmp_path)
+    pub = Publisher(store)
+    pub.publish_json("v1/good.json", {"a": 1})
+    pub.publish_json("v1/bad.json", {"b": 1})
+    pub.save_manifest()
+    assert pub.uploaded == 1
+    assert pub.failed == ["v1/bad.json"]
+    manifest = store.get_json("state/manifest.json")
+    assert "v1/good.json" in manifest and "v1/bad.json" not in manifest
+    # Next run retries only the failed file
+    pub2 = Publisher(LocalStore(tmp_path))
+    assert pub2.publish_json("v1/good.json", {"a": 1}) is False
+    assert pub2.publish_json("v1/bad.json", {"b": 1}) is True
+
+
+def test_r2_store_waits_out_a_503(monkeypatch):
+    store = R2Store("acct123", "AKID", "SECRET", "vote-tracker-data")
+    monkeypatch.setattr(R2Store, "OUTER_WAITS", (0,))
+    with Stubber(store.client) as stub:
+        stub.add_client_error("put_object", service_error_code="ServiceUnavailable", http_status_code=503)
+        stub.add_response("put_object", {})
+        store.put("v1/x.json", b"{}", "application/json")
+        stub.assert_no_pending_responses()
+
+
+def test_r2_store_does_not_retry_bad_credentials(monkeypatch):
+    from botocore.exceptions import ClientError
+
+    store = R2Store("acct123", "AKID", "SECRET", "vote-tracker-data")
+    monkeypatch.setattr(R2Store, "OUTER_WAITS", (0,))
+    with Stubber(store.client) as stub:
+        stub.add_client_error("put_object", service_error_code="AccessDenied", http_status_code=403)
+        try:
+            store.put("v1/x.json", b"{}", "application/json")
+        except ClientError:
+            pass
+        else:
+            raise AssertionError("expected ClientError")

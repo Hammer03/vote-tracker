@@ -71,3 +71,17 @@ def test_senate_gov_record_replaces_voteview(tmp_path, cfg):
     # A vote senate.gov doesn't list (in these fixtures) stays from Voteview.
     v3 = json.loads((tmp_path / "v1/votes/senate/119-2/3.json").read_text())
     assert v3["source"]["via"] == "voteview"
+
+
+def test_votes_refused_one_at_a_time_are_filled_from_voteview(tmp_path, cfg):
+    r = vv_routes(block_senate=False)
+    r[senate_votes.xml_url(119, 1, 2)] = (403, b"Access Denied")  # menu works, one vote refused
+    store = LocalStore(tmp_path)
+    Pipeline(cfg, store, FakeHttpClient(r), today=TODAY).run(
+        states=False, money=False, bills=False, send_alerts=False)
+    v1 = json.loads((tmp_path / "v1/votes/senate/119-1/1.json").read_text())
+    v2 = json.loads((tmp_path / "v1/votes/senate/119-1/2.json").read_text())
+    assert v1["source"]["name"] == senate_votes.SOURCE_NAME
+    assert v2["source"]["via"] == "voteview"
+    # Only the refused vote is taken from Voteview, not everything it has
+    assert not (tmp_path / "v1/votes/senate/119-2/3.json").exists()

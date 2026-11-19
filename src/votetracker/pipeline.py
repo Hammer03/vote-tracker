@@ -89,6 +89,7 @@ class Pipeline:
         new_ids = []
         first_year, _ = years_for_congress(congress)
         blocked = None
+        fill_ids: set[str] = set()  # votes senate.gov refused one at a time
         for session in (1, 2):
             if first_year + session - 1 > self.today.year:
                 continue
@@ -104,6 +105,9 @@ class Pipeline:
             except senate_votes.SenateUnavailable as exc:
                 blocked = str(exc)
                 break
+            except senate_votes.PartialFetch as partial:
+                fetched = partial.found
+                fill_ids.update(f"senate-{congress}-{session}-{n}" for n in partial.failed)
             for v in fetched:
                 self._map_former_senators([v], legs)
                 if v["id"] not in bundle:
@@ -112,9 +116,14 @@ class Pipeline:
                     new_ids.append(v["id"])
                 bundle[v["id"]] = v
 
-        if blocked:
-            log.warning("senate.gov unavailable (%s): using Voteview for Senate votes", blocked)
+        if blocked or fill_ids:
+            if blocked:
+                log.warning("senate.gov unavailable (%s): using Voteview for Senate votes", blocked)
+            else:
+                log.info("filling %d Senate votes from Voteview that senate.gov refused", len(fill_ids))
             for v in voteview.fetch_senate(self.http, congress) or []:
+                if not blocked and v["id"] not in fill_ids:
+                    continue
                 existing = bundle.get(v["id"])
                 if existing and (existing.get("source") or {}).get("via") != "voteview":
                     continue  # keep the senate.gov record
@@ -230,7 +239,8 @@ class Pipeline:
         pub.save_manifest()
 
         alerts = self._send_alerts(legs, runner, dry_run) if send_alerts else {}
-        report = {"uploaded": pub.uploaded, "unchanged": pub.skipped, "states": states_report, "alerts": alerts}
+        report = {"uploaded": pub.uploaded, "unchanged": pub.skipped, "upload_failed": len(pub.failed),
+                  "states": states_report, "alerts": alerts}
         report.update(
             {
                 "started_at": iso(started),

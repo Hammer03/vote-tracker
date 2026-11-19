@@ -1,10 +1,11 @@
 name: Update data
 
-# Runs every hour. When nothing new happened in Congress, a run makes only a
-# few small requests and uploads one file, so hourly is cheap.
+# Asks GitHub to run twice an hour. GitHub sometimes drops scheduled runs when
+# it is busy, so two chances an hour keeps updates roughly hourly. When nothing
+# new happened, a run takes a minute or two and uploads one file.
 on:
   schedule:
-    - cron: "17 * * * *"
+    - cron: "17,47 * * * *"
   workflow_dispatch:
     inputs:
       full_refresh:

@@ -25,6 +25,15 @@ class SenateUnavailable(Exception):
     """senate.gov refused or failed (its firewall blocks many cloud servers)."""
 
 
+class PartialFetch(Exception):
+    """Some votes downloaded; senate.gov refused others one at a time."""
+
+    def __init__(self, found: list[dict], failed: list[int]):
+        super().__init__(f"{len(failed)} votes refused")
+        self.found = found
+        self.failed = failed
+
+
 def menu_url(congress: int, session: int) -> str:
     return f"https://www.senate.gov/legislative/LIS/roll_call_lists/vote_menu_{congress}_{session}.xml"
 
@@ -183,14 +192,18 @@ def fetch_new(http, congress: int, session: int, known: set[int], lis_to_bioguid
     if max_new is not None:
         wanted = wanted[:max_new]
     found = []
+    failed = []
     for n in wanted:
         r = http.get(xml_url(congress, session, n))
         if not r.ok:
             log.warning("Senate vote %s-%s-%s: HTTP %s", congress, session, n, r.status)
+            failed.append(n)
             continue
         try:
             found.append(parse(r.content, lis_to_bioguide))
         except Exception as exc:
             log.warning("could not parse Senate vote %s-%s-%s: %s", congress, session, n, exc)
     log.info("Senate %s-%s: %d new or refreshed votes", congress, session, len(found))
+    if failed:
+        raise PartialFetch(found, failed)
     return found
