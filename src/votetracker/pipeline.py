@@ -353,5 +353,7 @@ class Pipeline:
                 log.info("FIREBASE_SERVICE_ACCOUNT not set: %d alerts recorded, not sent", len(messages))
         result = notify.deliver(messages, sender)
         result["firebase"] = bool(self.cfg.firebase_service_account)
+        if not result["firebase"]:
+            result["recorded_not_sent"], result["sent"] = result["sent"], 0
         self.store.put_json("state/alerts/last_run.json", {**result, "sample": messages[:20]}, "no-store")
         return result
